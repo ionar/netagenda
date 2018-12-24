@@ -52,5 +52,6 @@ test:
 production:
   <<: *default
   database: netagenda_production
-  username: netagenda
-  password: <%= ENV['NETAGENDA_DATABASE_PASSWORD'] %>
+  host: <%= ENV['NETAGENDA_DATABASE_HOST'] %>
+  username: <%= ENV['NETAGENDA_DATABASE_USER'] %>
+  password: <%= ENV['NETAGENDA_DATABASE_PASSWORD'] %>  
