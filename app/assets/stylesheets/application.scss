@@ -12,4 +12,77 @@
  *
 */
 
+// example override bootswatch variables
+/*
+$primary:       #FFCF06;
+$secondary:     #37474f;
+$success:       #28b62c;
+$info:          #03a9f4;
+$warning:       #fbe42c;
+$danger:        #ff4136;
+$light:         #eeeeee;
+$dark:          #444444;
+// end example override
+*/
+
+// import scss file
+//@import "bootswatch/flatly/variables";
 @import "bootstrap";
+//@import "bootswatch/flatly/bootswatch";
+
+.faixa-menu {
+	margin-bottom: 0;
+}
+.faixa-titulos {
+	// height: 50px;
+	background: #ecf0f1 image-url("faixa-shadow.png") no-repeat scroll center top;
+	margin-bottom: 20px;
+}
+.titulo-bc h3 {
+  color: #999;
+  font-size: 2.0em !important;
+  font-weight: bold;
+  margin: 0;
+  text-align: left;  
+  vertical-align: middle;
+  display:inline-block; 
+  padding: 10px;
+  //border-bottom: 2px solid #653366;
+  //text-transform: uppercase;
+  //background-color: #fff;
+  //width: 200px;
+  line-height: 40px;
+  //text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  //border: 1px solid #ff0000;
+}
+
+.titulo-actions {
+	padding: 10px;
+}
+
+.upcase{
+	text-transform: uppercase;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+	font-weight: bold;
+}
+
+.turbolinks-progress-bar {
+  height: 5px;
+  background-color: green;
+}
+
+#flash-message-wrapper {
+    position: fixed;
+    width: 100%;
+    z-index: 1001;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+#calendario-flutuante{
+  border: 2px solid #18BC9C;
+  width: 300px;
+  z-index: 999;
+  position: absolute;
+  background-color: #fff;
+  margin: 10px;
+}
