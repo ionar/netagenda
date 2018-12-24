@@ -1,0 +1,12 @@
+pt-BR:
+ activerecord:
+   models:
+     movie:
+       one: Filme
+       other: Filmes
+   attributes:
+     movie:
+       name: nome
+       director: diretor
+       run_time: tempo de duração
+       release_date: data de lançamento

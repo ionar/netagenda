@@ -7,9 +7,29 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <link rel="manifest" href="/manifest.json" />
+<meta name="apple-mobile-web-app-capable" content="yes"></head>
 
   <body>
+    <div class="container-fluid">
+
+
+  
     <%= yield %>
+
+    <hr>
+   
+<% if user_signed_in? %>
+                          <%= link_to edit_user_registration_path do %><span class="glyphicon glyphicon-user"></span> <%= current_user.email %><% end %>
+                          <br>
+                          <%= link_to destroy_user_session_path, method: :delete do %><span class="glyphicon glyphicon-log-out"></span> Sair <% end %>
+                           <br>
+                        <% else %>
+                          <%= link_to new_user_session_path do %><span class="glyphicon glyphicon-log-in"></span> Login <% end %>
+                          <br>
+<% end %>
+
+
+    </div><!-- /container-fluid -->
   </body>
 </html>
