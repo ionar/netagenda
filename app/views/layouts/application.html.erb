@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="NetAgenda - Software simplificado para agendamento">
     <meta name="author" content="@michielin">
+    <%= render 'application/favicon' %>
+
+
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -17,19 +20,15 @@
 <meta name="apple-mobile-web-app-capable" content="yes"></head>
 
   <body>
-    <%= render 'layouts/navbar' %>
+    <% if user_signed_in? %>
+      <%= render 'layouts/navbar' %>
+    <% end %>
     <div class="container-fluid">
     <%= yield %>
     <hr>
-<% if user_signed_in? %>
-                          <%= link_to edit_user_registration_path do %><span class="glyphicon glyphicon-user"></span> <%= current_user.email %><% end %>
-                          <br>
-                          <%= link_to destroy_user_session_path, method: :delete do %><span class="glyphicon glyphicon-log-out"></span> Sair <% end %>
-                           <br>
-                        <% else %>
-                          <%= link_to new_user_session_path do %><span class="glyphicon glyphicon-log-in"></span> Login <% end %>
-                          <br>
-<% end %>
+
+
+
     </div><!-- /container-fluid -->
   </body>
 </html>

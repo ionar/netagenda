@@ -31,15 +31,18 @@
       </li>
     </ul>
     <ul class="navbar-nav">
-    <li class="nav-item dropdown">
+      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
+          <%= octicon "gear" %>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
+          <%= link_to edit_user_registration_path, class: "dropdown-item" do %>
+            <%= octicon "person" %>
+            <%= current_user.email %>
+          <% end %>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <%= link_to destroy_user_session_path, class: "dropdown-item", method: :delete do %>
+                <%= octicon "sign-out" %> Sair <% end %>
         </div>
       </li>
     </ul>
