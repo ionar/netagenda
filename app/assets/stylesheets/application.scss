@@ -30,8 +30,14 @@ $dark:          #444444;
 @import "bootstrap";
 //@import "bootswatch/flatly/bootswatch";
 
+.logo-brand {
+  max-height: 40px;
+  padding: 0;
+}
 
-
+.octicon-nav{
+  fill: #ccc;
+}
 
 .faixa-menu {
 	margin-bottom: 0;
