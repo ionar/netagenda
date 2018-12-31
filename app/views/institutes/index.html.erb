@@ -1,32 +1,10 @@
 <% @page_title = "Instituições" %>
-  <div class="faixa-titulos">
-
-      
-      <div class="row">
-        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-          <div class="titulo-bc">
-            <h3>Instituições - Cadastro</h3>
-          </div>
-        </div><!-- /col -->
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-          <div class="titulo-actions text-right">
-          <%= link_to new_institute_path, :class => 'btn btn-default' do %>
-            <span class="glyphicon glyphicon-plus"></span> Novo
-          <% end %> 
-
-          </div>
-        </div><!-- /col -->
-      </div><!-- /row -->
-
-  </div><!-- /.faixa-titulos -->
-
-
 
 <p id="notice"><%= notice %></p>
 
 <h1>Institutes</h1>
 
-<table class="striped">
+<table class="highlight">
   <thead>
     <tr>
       <th>Name</th>
@@ -46,7 +24,10 @@
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Institute', new_institute_path %>
-<a class="btn-floating btn-lg purple-gradient"><i class="fas fa-bolt"></i></a>
+
+<div class="fixed-action-btn">
+  <%= link_to new_institute_path, class: "btn-floating btn-large waves-effect waves-light teal darken-1" do %>
+    <i class="material-icons">add</i>
+  <% end %>
+</div>

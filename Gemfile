@@ -68,8 +68,6 @@ gem 'simple_form'
 gem 'devise'
 gem 'serviceworker-rails'
 
-gem 'octicons_helper'
-
 gem 'materialize-sass'
 gem 'material_icons'
 gem 'materialize-form'

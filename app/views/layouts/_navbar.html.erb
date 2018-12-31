@@ -1,10 +1,11 @@
 <nav class="teal darken-1">
   <div class="container">
     <div class="nav-wrapper">
-      <%= link_to root_path, class: 'logo' do %>
-        <%= image_tag 'net-agenda-logo-40.png', alt: 'NetAgenda' %>
+      <%= link_to root_path do %>
+        <%= image_tag 'net-agenda-logo-40.png', alt: 'NetAgenda', class: 'hide-on-small-only logo-img-40' %>
+        <%= image_tag 'net-agenda-logo.png', alt: 'NetAgenda', class: 'hide-on-med-and-up logo-img-20' %>
        <% end %>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger" data-turbolinks-permanent><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="sass.html">Sass</a></li>
         <li><a href="badges.html">Components</a></li>
@@ -21,4 +22,5 @@
     <li><a href="badges.html">Components</a></li>
     <li><a href="collapsible.html">Javascript</a></li>
     <li><a href="mobile.html">Mobile</a></li>
+    <li><a class="sidenav-close" href="#!">Clicking this will close Sidenav</a></li>
   </ul>
