@@ -8,27 +8,19 @@
     <meta name="description" content="NetAgenda - Software simplificado para agendamento">
     <meta name="author" content="@michielin">
     <%= render 'application/favicon' %>
-
-
-
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <link rel="manifest" href="/manifest.json" />
-<meta name="apple-mobile-web-app-capable" content="yes"></head>
+  <meta name="apple-mobile-web-app-capable" content="yes"></head>
 
   <body>
     <% if user_signed_in? %>
       <%= render 'layouts/navbar' %>
     <% end %>
-    <div class="container-fluid">
-    <%= yield %>
-    <hr>
-
-
-
-    </div><!-- /container-fluid -->
+    <div class="container">
+      <%= yield %>
+    </div><!-- /container -->
   </body>
 </html>

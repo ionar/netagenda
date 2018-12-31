@@ -1,50 +1,11 @@
 @import "materialize";
 @import "material_icons";
+@import "scaffolds";
 
-
-.logo-brand {
-  max-height: 40px;
-  padding: 0;
-}
-
-.octicon-nav{
-  fill: #ccc;
-}
-
-.faixa-menu {
-	margin-bottom: 0;
-}
-.faixa-titulos {
-	// height: 50px;
-	background: #ecf0f1 image-url("faixa-shadow.png") no-repeat scroll center top;
-	margin-bottom: 20px;
-}
-.titulo-bc h3 {
-  color: #999;
-  font-size: 2.0em !important;
-  font-weight: bold;
-  margin: 0;
-  text-align: left;  
-  vertical-align: middle;
-  display:inline-block; 
-  padding: 10px;
-  //border-bottom: 2px solid #653366;
-  //text-transform: uppercase;
-  //background-color: #fff;
-  //width: 200px;
-  line-height: 40px;
-  //text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-  //border: 1px solid #ff0000;
-}
-
-.titulo-actions {
-	padding: 10px;
-}
-
-.upcase{
-	text-transform: uppercase;
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
-	font-weight: bold;
+.logo>img {
+    //vertical-align: middle;
+    max-height: 64px!important;
+    padding: 15px 0!important;
 }
 
 .turbolinks-progress-bar {
@@ -53,10 +14,10 @@
 }
 
 #flash-message-wrapper {
-    position: fixed;
-    width: 100%;
-    z-index: 1001;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  width: 100%;
+  z-index: 1001;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
 #calendario-flutuante{

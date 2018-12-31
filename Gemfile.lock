@@ -116,6 +116,7 @@ GEM
       mimemagic (~> 0.3.2)
     material_icons (2.2.1)
       railties (>= 3.2)
+    materialize-form (1.0.8)
     materialize-sass (1.0.0)
       autoprefixer-rails (>= 6.0.3)
     method_source (0.9.2)
@@ -258,6 +259,7 @@ DEPENDENCIES
   jquery-rails
   listen (>= 3.0.5, < 3.2)
   material_icons
+  materialize-form
   materialize-sass
   mysql2 (>= 0.4.4, < 0.6.0)
   octicons_helper
