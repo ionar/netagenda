@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :clients
   root to: 'institutes#index'
   resources :institutes
   devise_for :users

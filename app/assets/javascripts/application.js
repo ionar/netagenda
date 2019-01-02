@@ -14,6 +14,7 @@ $(document).on("turbolinks:load", function() {
   console.log("LOAD rodou");
   // cocoon gem, open new input after existent
   ////$("#weighings a.add_fields").data("association-insertion-method", 'before').data("association-insertion-node", 'this');
+
   M.updateTextFields();
   $('select').formSelect();
   $('.dropdown-button').dropdown(); 
@@ -21,30 +22,38 @@ $(document).on("turbolinks:load", function() {
   $('.dropdown-trigger').dropdown();
    Waves.displayEffect(); 
    window.materializeForm.init();
-   $('.sidenav').sidenav();
+  $('.sidenav').sidenav();
 
-  //$('.date').pickadate(); 
+
+  $('#client_birth_data').datepicker({
+  	selectMonths: true,
+  	showDaysInNextAndPreviousMonths: true,
+    yearRange: 100,
+    autoClose: false,
+    container: 'body',
+    setDefaultDate: true,
+    showClearBtn: true,
+    // Formato da data que aparece no input
+    format: 'dd/mm/yyyy',
+    //formatSubmit: 'yyyy/mm/dd', configurado em initilizers/time_formats.rb
+    onClose: function() {
+      $(document.activeElement).blur()
+    },
+
+  	i18n: {
+	    today: 'Hoje',
+	    clear: 'Limpar',
+	    done: 'Ok',
+	    nextMonth: 'Próximo mês',
+	    previousMonth: 'Mês anterior',
+	    weekdaysAbbrev: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'],
+	    weekdaysShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
+	    weekdays: ['Domingo', 'Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sábado'],
+	    monthsShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+	    months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
+	}  
+  });
 });
-
-/*
-// Brazilian Portuguese
-	jQuery.extend( jQuery.fn.pickadate.defaults, {
-	    monthsFull: [ 'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro' ],
-	    monthsShort: [ 'jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez' ],
-	    weekdaysFull: [ 'domingo', 'segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sábado' ],
-	    weekdaysShort: [ 'dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sab' ],
-	    today: 'hoje',
-	    clear: 'limpar',
-	    close: 'fechar',
-	    //format: 'dddd, d !de mmmm !de yyyy',
-	    format: 'yyyy/mm/dd',
-	    formatSubmit: 'yyyy/mm/dd'
-	});
-
-	jQuery.extend( jQuery.fn.pickatime.defaults, {
-	    clear: 'limpar'
-	});
-*/
 
 // Fix bug with turbolinks and sidenav
 document.addEventListener('turbolinks:before-render', () => {

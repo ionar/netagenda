@@ -2,25 +2,29 @@
   <div class="container">
     <div class="nav-wrapper">
       <%= link_to root_path, class: 'brand-logo' do %>
-        <%= image_tag 'net-agenda-logo-40.png', alt: 'NetAgenda', class: 'logo-img-40 hide-on-small-only' %>
-        <%= image_tag 'net-agenda-logo.png', alt: 'NetAgenda', class: 'logo-img-20 hide-on-med-and-up' %>
+        <%# image_tag 'net-agenda-logo-40.png', alt: 'NetAgenda', class: 'logo-img-40 hide-on-small-onlyx' %>
+        <%= image_tag 'net-agenda-logo.png', alt: 'NetAgenda', class: 'logo-img-20 hide-on-med-and-upx hoverable' %>
        <% end %>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
+        <li class="<%= active?('clients')%>"><%= link_to 'Clientes', clients_path %></li>
+        <li class="<%= active?('institutes')%>"><%= link_to 'institutes', institutes_path %></li>
         <li><a href="badges.html">Components</a></li>
         <li><a href="collapsible.html">Javascript</a></li>
         <li><a href="mobile.html">Mobile</a></li>
         <li><i class="material-icons">settings</i></li>
+        <li><%= link_to destroy_user_session_path, method: :delete do %><i class="material-icons">power_settings_new</i><% end %></li>
       </ul>
     </div>
   </div><!-- /container -->
 </nav>
 
   <ul class="sidenav" id="mobile-demo">
+    <li class="<%= active?('clients')%>"><%= link_to 'Clientes', clients_path %></li>
     <li><a href="sass.html">Sass</a></li>
     <li><a href="badges.html">Components</a></li>
     <li><a href="collapsible.html">Javascript</a></li>
-    <li><a href="mobile.html">Mobile</a></li>
+    <li class="active"><a href="mobile.html">Mobile</a></li>
     <li><a class="sidenav-close" href="#!">Clicking this will close Sidenav</a></li>
+    <li><%= link_to destroy_user_session_path, method: :delete do %><i class="material-icons">power_settings_new</i><% end %></li>
   </ul>

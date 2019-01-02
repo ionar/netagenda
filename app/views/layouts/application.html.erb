@@ -19,6 +19,13 @@
     <% if user_signed_in? %>
       <%= render 'layouts/navbar' %>
     <% end %>
+
+      <% flash.each do |type, message| %>
+      <% tipo = materialize_class_for(type) %>
+      <% icon = icon_type_for(type) %>
+      <%= javascript_tag "M.toast({html: '<i class=\"material-icons\">#{icon}</i>  <strong>#{message}</strong>', classes: '#{tipo}' })" %>
+      <% end %>
+
     <div class="container">
       <%= yield %>
     </div><!-- /container -->
