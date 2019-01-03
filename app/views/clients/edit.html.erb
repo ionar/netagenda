@@ -1,6 +1,12 @@
-<h1>Editing Client</h1>
+<% @page_title = @client.name + " - Editar" %>
 
 <%= render 'form', client: @client %>
 
-<%= link_to 'Show', @client %> |
-<%= link_to 'Back', clients_path %>
+<div class="fixed-action-btn">
+  <%= link_to @client, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn-floating btn-large waves-effect waves-light red" do %>
+    <i class="material-icons">delete</i>
+  <% end %>
+  <%= link_to clients_path, class: "btn-floating btn-large waves-effect waves-light teal darken-1" do %>
+    <i class="material-icons">arrow_back</i>
+  <% end %>
+</div>

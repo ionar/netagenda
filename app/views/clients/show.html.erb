@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<% @page_title = @client.name %>
 
 <p>
   <strong>Name:</strong>
@@ -36,8 +36,8 @@
 </p>
 
 <p>
-  <strong>Birth data:</strong>
-  <%= @client.birth_data.strftime("%d/%m/%Y") %>
+  <strong>Birth date:</strong>
+  <%= @client.birth_date.strftime("%d/%m/%Y") if @client.birth_date %>
 </p>
 
 <p>
@@ -65,5 +65,14 @@
   <%= @client.notes %>
 </p>
 
-<%= link_to 'Edit', edit_client_path(@client) %> |
-<%= link_to 'Back', clients_path %>
+<div class="fixed-action-btn">
+  <%= link_to edit_client_path(@client), class: "btn-floating btn-large waves-effect waves-light teal darken-1" do %>
+    <i class="material-icons">create</i>
+  <% end %>
+  <%= link_to @client, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn-floating btn-large waves-effect waves-light red" do %>
+    <i class="material-icons">delete</i>
+  <% end %>
+  <%= link_to clients_path, class: "btn-floating btn-large waves-effect waves-light teal darken-1" do %>
+    <i class="material-icons">arrow_back</i>
+  <% end %>
+</div>

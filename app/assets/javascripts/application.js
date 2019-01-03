@@ -15,6 +15,7 @@ $(document).on("turbolinks:load", function() {
   // cocoon gem, open new input after existent
   ////$("#weighings a.add_fields").data("association-insertion-method", 'before').data("association-insertion-node", 'this');
 
+  M.textareaAutoResize($('.materialize-textarea'));
   M.updateTextFields();
   $('select').formSelect();
   $('.dropdown-button').dropdown(); 
@@ -24,10 +25,10 @@ $(document).on("turbolinks:load", function() {
    window.materializeForm.init();
   $('.sidenav').sidenav();
 
-
-  $('#client_birth_data').datepicker({
+  $('.abre-calendario').datepicker({
   	selectMonths: true,
   	showDaysInNextAndPreviousMonths: true,
+  	showMonthAfterYear: true,
     yearRange: 100,
     autoClose: false,
     container: 'body',
@@ -35,6 +36,7 @@ $(document).on("turbolinks:load", function() {
     showClearBtn: true,
     // Formato da data que aparece no input
     format: 'dd/mm/yyyy',
+    allowInputToggle: true,
     //formatSubmit: 'yyyy/mm/dd', configurado em initilizers/time_formats.rb
     onClose: function() {
       $(document.activeElement).blur()
@@ -53,6 +55,7 @@ $(document).on("turbolinks:load", function() {
 	    months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
 	}  
   });
+ 
 });
 
 // Fix bug with turbolinks and sidenav

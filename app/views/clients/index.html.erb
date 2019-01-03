@@ -1,51 +1,28 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Clients</h1>
-
-<table>
+<% @page_title = "Clientes" %>
+<table class="highlight">
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Nome</th>
       <th>Whatsapp</th>
-      <th>Phone</th>
-      <th>Address</th>
-      <th>Cep</th>
-      <th>City</th>
-      <th>Province</th>
-      <th>Birth data</th>
-      <th>Cpf</th>
-      <th>Rg</th>
-      <th>Email</th>
-      <th>Occupation</th>
-      <th>Notes</th>
-      <th colspan="3"></th>
+      <th>Cidade</th>
+      <th>Estado</th>
     </tr>
   </thead>
 
   <tbody>
     <% @clients.each do |client| %>
       <tr>
-        <td><%= client.name %></td>
+        <td><%= link_to client.name, client %></td>
         <td><%= client.whatsapp %></td>
-        <td><%= client.phone %></td>
-        <td><%= client.address %></td>
-        <td><%= client.cep %></td>
         <td><%= client.city %></td>
         <td><%= client.province %></td>
-        <td><%= client.birth_data %></td>
-        <td><%= client.cpf %></td>
-        <td><%= client.rg %></td>
-        <td><%= client.email %></td>
-        <td><%= client.occupation %></td>
-        <td><%= client.notes %></td>
-        <td><%= link_to 'Show', client %></td>
-        <td><%= link_to 'Edit', edit_client_path(client) %></td>
-        <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Client', new_client_path %>
+<div class="fixed-action-btn">
+  <%= link_to new_client_path, class: "btn-floating btn-large waves-effect waves-light teal darken-1" do %>
+    <i class="material-icons">add</i>
+  <% end %>
+</div>

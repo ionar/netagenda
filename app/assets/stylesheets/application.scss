@@ -7,12 +7,26 @@
   background-color: red;
 }
 
-#flash-message-wrapper {
-  position: fixed;
-  width: 100%;
-  z-index: 1001;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+.faixa-titulos{
+  background: #ecf0f1;
+  margin-bottom: 20px;
 }
+
+.titulo-bc h3 {
+  color: #999;
+  font-size: 1.5em !important;
+  font-weight: bold;
+  margin: 0;
+  text-align: left;  
+  vertical-align: middle;
+  display:inline-block; 
+  padding: 10px;
+  //border-bottom: 1px solid #999;
+  //text-transform: uppercase;
+  line-height: 40px;
+  //text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
 
 #calendario-flutuante{
   border: 2px solid #18BC9C;

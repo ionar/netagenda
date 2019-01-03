@@ -2,7 +2,7 @@ window.materializeForm = {
   init: function() {
     this.initSelect()
     this.initCheckbox()
-    this.initDate()
+    //this.initDate()
   },
   initSelect: function() {
     $('select[multiple="multiple"] option[value=""]').attr('disabled', true)

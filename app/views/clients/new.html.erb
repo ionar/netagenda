@@ -1,5 +1,9 @@
-<h1>New Client</h1>
+<% @page_title = 'Novo cliente' %>
 
 <%= render 'form', client: @client %>
 
-<%= link_to 'Back', clients_path %>
+<div class="fixed-action-btn">
+  <%= link_to clients_path, class: "btn-floating btn-large waves-effect waves-light teal darken-1" do %>
+    <i class="material-icons">arrow_back</i>
+  <% end %>
+</div>

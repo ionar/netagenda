@@ -1,25 +1,65 @@
-
-<%= simple_form_for(@client) do |f| %>
+<div class="row">
+<%= simple_form_for @client, html: { class: "col s12"}  do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :whatsapp %>
-    <%= f.input :phone %>
-    <%= f.input :address %>
-    <%= f.input :cep %>
-    <%= f.input :city %>
-    <%= f.input :province %>
-    <%= f.input :birth_data %>
-    <%= f.input :cpf %>
-    <%= f.input :rg %>
-    <%= f.input :email %>
-    <%= f.input :occupation %>
-    <%= f.input :notes %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <div class="form-inputs row">
+    <%= f.input :name, label: 'Nome', wrapper_html: { class: 'col l4 m12 s12' }  %>
+    <%= f.input :whatsapp, wrapper_html: { class: 'col l4 m12 s12' } %>
+    <%= f.input :phone, label: 'Celular ou fixo', wrapper_html: { class: 'col l4 m12 s12' }  %>
+  </div><!-- /.form-inputs .row -->
+  <div class="form-inputs row">
+    <%= f.input :address, label: 'Endereço', wrapper_html: { class: 'col l4 m12 s12' } %>
+    <%= f.input :cep, label: 'CEP', wrapper_html: { class: 'col l4 m12 s12' } %>
+    <%= f.input :city, label: 'Cidade', wrapper_html: { class: 'col l3 m12 s12' } %>
+    <%= f.input :province, label: 'Estado', wrapper_html: { class: 'col l1 m12 s12' }, :collection => [
+                      ['AC','AC'],
+                      ['AL','AL'],
+                      ['AM','AM'],
+                      ['AP','AP'],
+                      ['BA','BA'],
+                      ['CE','CE'],
+                      ['DF','DF'],
+                      ['ES','ES'],
+                      ['GO','GO'],
+                      ['MA','MA'],
+                      ['MG','MG'],
+                      ['MS','MS'],
+                      ['MT','MT'],
+                      ['PA','PA'],
+                      ['PB','PB'],
+                      ['PE','PE'],
+                      ['PI','PI'],
+                      ['PR','PR'],
+                      ['RJ','RJ'],
+                      ['RN','RN'],
+                      ['RO','RO'],
+                      ['RR','RR'],
+                      ['RS','RS'],
+                      ['SC','SC'],
+                      ['SE','SE'],
+                      ['SP','SP'],
+                      ['TO','TO'],
+                      ['ESTRANGEIRO','ESTRANGEIRO'],
+                    ], prompt: 'Selecione' %>
+  </div><!-- /.form-inputs .row -->
+  <div class="form-inputs row">
+    <%= f.input :birth_date, label: "Data de nascimento", input_html: { class: 'abre-calendario' }, wrapper_html: { class: 'col l2 m12 s12' } %>
+    <%= f.input :cpf, label: 'CPF', wrapper_html: { class: 'col l2 m12 s12' } %>
+    <%= f.input :rg, label: 'RG', wrapper_html: { class: 'col l2 m12 s12' } %>
+    <%= f.input :email, wrapper_html: { class: 'col l3 m12 s12' } %>
+    <%= f.input :occupation, label: 'Profissão', wrapper_html: { class: 'col l3 m12 s12' } %>    
+  </div><!-- /.form-inputs .row -->
+<div class="form-inputs row">
+    <%= f.input :notes, label: 'Anotações', wrapper_html: { class: 'col l12 m12 s12' } %>
+  </div><!-- /.form-inputs .row -->  
+  <div class="row">
+    <div class="form-actions col s12">
+       <%= link_to 'Cancelar', :back, :class => 'waves-effect waves-light btn grey darken-1' %>
+        <%= button_tag(type: 'submit', class: "btn waves-effect waves-light deep-purple darken-1") do %>
+        Salvar <i class="material-icons right">done</i>
+      <% end %>
+    </div><!-- /.form-actions .row -->
+  </div><!-- /.row -->
 <% end %>
+</div><!-- /.row -->
