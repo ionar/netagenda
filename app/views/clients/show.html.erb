@@ -1,7 +1,7 @@
 <% @page_title = @client.name %>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nome:</strong>
   <%= @client.name %>
 </p>
 
@@ -11,12 +11,17 @@
 </p>
 
 <p>
-  <strong>Phone:</strong>
+  <strong>Telefone alternativo:</strong>
   <%= @client.phone %>
 </p>
 
 <p>
-  <strong>Address:</strong>
+  <strong>Email:</strong>
+  <%= @client.email %>
+</p>
+
+<p>
+  <strong>Endereço:</strong>
   <%= @client.address %>
 </p>
 
@@ -26,18 +31,23 @@
 </p>
 
 <p>
-  <strong>City:</strong>
+  <strong>Cidade:</strong>
   <%= @client.city %>
 </p>
 
 <p>
-  <strong>Province:</strong>
+  <strong>Estado:</strong>
   <%= @client.province %>
 </p>
 
 <p>
-  <strong>Birth date:</strong>
-  <%= @client.birth_date.strftime("%d/%m/%Y") if @client.birth_date %>
+  <strong>Data de nascimento:</strong>
+  <%# @client.birth_date.strftime("%d/%m/%Y") if @client.birth_date %>
+  <%=l @client.birth_date, format: :long if @client.birth_date.present? %>
+</p>
+<p>
+   <strong>Idade:</strong>
+  <%= time_ago_in_words(@client.birth_date) if @client.birth_date.present? %>
 </p>
 
 <p>
@@ -51,17 +61,12 @@
 </p>
 
 <p>
-  <strong>Email:</strong>
-  <%= @client.email %>
-</p>
-
-<p>
-  <strong>Occupation:</strong>
+  <strong>Profissão:</strong>
   <%= @client.occupation %>
 </p>
 
 <p>
-  <strong>Notes:</strong>
+  <strong>Anotações:</strong>
   <%= @client.notes %>
 </p>
 
@@ -76,3 +81,22 @@
     <i class="material-icons">arrow_back</i>
   <% end %>
 </div>
+
+
+<h5><i class="material-icons">arrow_drop_down</i>Atendimentos realizados:</h5>
+
+        
+
+
+<div class="card">
+  <div class="card-content black-text">
+    <span class="card-title">Card Title</span>
+    <p>I am a very simple card. I am good at containing small bits of information.
+    I am convenient because I require little markup to use effectively.</p>
+  </div>
+  <div class="card-action">
+    <a href="#">This is a link</a>
+    <a href="#">This is a link</a>
+  </div>
+</div>
+
