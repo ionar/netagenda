@@ -4,7 +4,9 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.json
   def index
-    @clients = Client.all
+    #@clients = Client.all
+
+    @clients = Client.order("name").page(params['page']).per(3)
   end
 
   # GET /clients/1
