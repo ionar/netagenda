@@ -1,13 +1,24 @@
 <% @page_title = "Clientes" %>
 <%# Settings.institutional.name %>
 
-<%= search_form_for @q do |f| %>
-  <%= f.label :name_cont %>
-  <%= f.search_field :name_cont, :class => 'form-control', :placeholder => 'Buscar por...' %>
-  <%= f.submit %>
-<% end %>
+<nav class="teal darken-1">
+    <div class="nav-wrapper">
+      <%= search_form_for @q do |f| %>
+        <div class="input-field">
+          <%= f.search_field :name_cont, placeholder: "Buscar pelo nome" %>
+          <%= f.label :name_cont, class: "label-icon" do %>
+            <i class="material-icons">search</i>
+          <% end %>
+          <i class="material-icons">close</i>
+        </div>
+      <% end %>
+    </div>
+  </nav>
+<div class="center-align">
+  <%= paginate @clients, views_prefix: 'paginator' %>
+  <small><%= page_entries_info @clients %></small>
+</div>
 
-<%= paginate @clients %>
 <table class="highlight">
   <thead>
     <tr>

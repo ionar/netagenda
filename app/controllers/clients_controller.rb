@@ -12,7 +12,7 @@ class ClientsController < ApplicationController
     @q = Client.ransack(params[:q])
     @q.sorts = 'name' if @q.sorts.empty?
     
-    @clients = @q.result.page(params['page']).per(5)
+    @clients = @q.result.page(params['page']).per(10)
   end
 
   # GET /clients/1

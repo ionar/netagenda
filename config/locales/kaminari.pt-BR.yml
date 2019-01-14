@@ -12,6 +12,7 @@ pt-BR:
         display_entries:
           zero: "No %{entry_name} found"
           one: "Mostrando <b>1</b> %{entry_name}"
-          other: "Mostrando <b>all %{count}</b> %{entry_name}"
+          other: "Mostrando <b>todos %{count}</b> %{entry_name}"
       more_pages:
-        display_entries: "Mostrando %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> de <b>%{total}</b> in total"
+        #display_entries: "Mostrando %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> de um total de <b>%{total}</b>"
+        display_entries: "Mostrando <b>%{first}&nbsp;-&nbsp;%{last}</b> de um total de <b>%{total}</b>"

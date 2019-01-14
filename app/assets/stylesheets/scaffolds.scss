@@ -50,6 +50,11 @@ div {
 #notice {
   color: green;
 }
+
+label {
+  display: block;
+}
+
 */
 
 .field_with_errors {
@@ -79,8 +84,4 @@ div {
     font-size: 12px;
     list-style: square;
   }
-}
-
-label {
-  display: block;
 }
