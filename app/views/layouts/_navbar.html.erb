@@ -9,10 +9,10 @@
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li class="<%= active?('clients')%>"><%= link_to 'Clientes', clients_path %></li>
-          <li><a href="badges.html">Components</a></li>
+          <li class="<%= active?('services')%>"><%= link_to 'Serviços', services_path %></li>
           <li><a href="collapsible.html">Javascript</a></li>
           <li><a href="mobile.html">Mobile</a></li>
-          <li><i class="material-icons">settings</i></li>
+          <li><%= link_to edit_user_registration_path do %><i class="material-icons">settings</i><% end %></li>          
           <li><%= link_to destroy_user_session_path, method: :delete do %><i class="material-icons">power_settings_new</i><% end %></li>
         </ul>
       </div>
@@ -21,7 +21,7 @@
 </div><!-- /.navbar-fixed -->
     <ul class="sidenav" id="mobile-demo">
       <li class="<%= active?('clients')%>"><%= link_to 'Clientes', clients_path %></li>
-      <li><a href="sass.html">Sass</a></li>
+      <li class="<%= active?('services')%>"><%= link_to 'Serviços', services_path %></li>
       <li><a href="badges.html">Components</a></li>
       <li><a href="collapsible.html">Javascript</a></li>
       <li class="active"><a href="mobile.html">Mobile</a></li>

@@ -6,7 +6,13 @@ class ClientsController < ApplicationController
   def index
     #@clients = Client.all
 
-    @clients = Client.order("name").page(params['page']).per(3)
+    ##@clients = Client.order("name").page(params['page']).per(3)
+
+
+    @q = Client.ransack(params[:q])
+    @q.sorts = 'name' if @q.sorts.empty?
+    
+    @clients = @q.result.page(params['page']).per(5)
   end
 
   # GET /clients/1

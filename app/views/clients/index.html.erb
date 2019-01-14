@@ -1,11 +1,17 @@
 <% @page_title = "Clientes" %>
 <%# Settings.institutional.name %>
 
+<%= search_form_for @q do |f| %>
+  <%= f.label :name_cont %>
+  <%= f.search_field :name_cont, :class => 'form-control', :placeholder => 'Buscar por...' %>
+  <%= f.submit %>
+<% end %>
+
 <%= paginate @clients %>
 <table class="highlight">
   <thead>
     <tr>
-      <th>Nome</th>
+      <th><%= sort_link(@q, :name, remote: true) %></th>
       <th>Whatsapp</th>
       <th>Cidade</th>
       <th>Estado</th>
