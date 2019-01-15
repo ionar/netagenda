@@ -10,6 +10,7 @@
         <ul class="right hide-on-med-and-down">
           <li class="<%= active?('clients')%>"><%= link_to 'Clientes', clients_path %></li>
           <li class="<%= active?('services')%>"><%= link_to 'Serviços', services_path %></li>
+          <li class="<%= active?('calendars')%>"><%= link_to 'Calendarios', calendars_path %></li>
           <li><%= link_to edit_user_registration_path do %><i class="material-icons">settings</i><% end %></li>                   
           <li><%= link_to destroy_user_session_path, method: :delete do %><i class="material-icons">power_settings_new</i><% end %></li>
         </ul>
@@ -21,6 +22,7 @@
       <li><a class="sidenav-close" href="#!"><i class="material-icons">close</i></a></li>
       <li class="<%= active?('clients')%>"><%= link_to 'Clientes', clients_path %></li>
       <li class="<%= active?('services')%>"><%= link_to 'Serviços', services_path %></li>
+      <li class="<%= active?('calendars')%>"><%= link_to 'Calendarios', calendars_path %></li>
       <li><%= link_to 'Configurações', edit_user_registration_path %></li>          
       <li><%= link_to destroy_user_session_path, method: :delete do %><i class="material-icons">power_settings_new</i>Sair<% end %></li>
     </ul>

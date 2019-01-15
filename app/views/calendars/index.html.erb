@@ -1,0 +1,42 @@
+<% @page_title = "Calendários" %>
+<%# Settings.institutional.name %>
+
+<nav class="teal darken-1">
+    <div class="nav-wrapper">
+      <%= search_form_for @q do |f| %>
+        <div class="input-field">
+          <%= f.search_field :name_cont, placeholder: "Buscar pelo nome" %>
+          <%= f.label :name_cont, class: "label-icon" do %>
+            <i class="material-icons">search</i>
+          <% end %>
+          <i class="material-icons">close</i>
+        </div>
+      <% end %>
+    </div>
+  </nav>
+<div class="center-align">
+  <%= paginate @calendars, views_prefix: 'paginator' %>
+  <small><%= page_entries_info @calendars %></small>
+</div>
+
+<table class="highlight">
+  <thead>
+    <tr>
+      <th><%= sort_link(@q, :name, remote: true) %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @calendars.each do |calendar| %>
+      <tr>
+        <td><%= link_to calendar.name, calendar %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="fixed-action-btn">
+  <%= link_to new_calendar_path, class: "btn-floating btn-large waves-effect waves-light teal darken-1" do %>
+    <i class="material-icons">add</i>
+  <% end %>
+</div>
