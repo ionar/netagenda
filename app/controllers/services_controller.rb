@@ -4,7 +4,11 @@ class ServicesController < ApplicationController
   # GET /services
   # GET /services.json
   def index
-    @services = Service.all
+    #@services = Service.all
+    
+    @q = Service.ransack(params[:q])
+    @q.sorts = 'name' if @q.sorts.empty?
+    @services = @q.result.page(params['page']).per(10)
   end
 
   # GET /services/1
@@ -28,7 +32,7 @@ class ServicesController < ApplicationController
 
     respond_to do |format|
       if @service.save
-        format.html { redirect_to @service, notice: 'Service was successfully created.' }
+        format.html { redirect_to @service, notice: t('create_success') }
         format.json { render :show, status: :created, location: @service }
       else
         format.html { render :new }
@@ -42,7 +46,7 @@ class ServicesController < ApplicationController
   def update
     respond_to do |format|
       if @service.update(service_params)
-        format.html { redirect_to @service, notice: 'Service was successfully updated.' }
+        format.html { redirect_to @service, notice: t('update_success') }
         format.json { render :show, status: :ok, location: @service }
       else
         format.html { render :edit }
@@ -56,7 +60,7 @@ class ServicesController < ApplicationController
   def destroy
     @service.destroy
     respond_to do |format|
-      format.html { redirect_to services_url, notice: 'Service was successfully destroyed.' }
+      format.html { redirect_to services_url, notice: t('destroy_success') }
       format.json { head :no_content }
     end
   end

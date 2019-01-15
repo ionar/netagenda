@@ -1,9 +1,18 @@
-<p id="notice"><%= notice %></p>
+<% @page_title = @service.name %>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nome:</strong>
   <%= @service.name %>
 </p>
 
-<%= link_to 'Edit', edit_service_path(@service) %> |
-<%= link_to 'Back', services_path %>
+<div class="fixed-action-btn">
+  <%= link_to edit_service_path(@service), class: "btn-floating btn-large waves-effect waves-light teal darken-1" do %>
+    <i class="material-icons">create</i>
+  <% end %>
+  <%= link_to @service, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn-floating btn-large waves-effect waves-light red" do %>
+    <i class="material-icons">delete</i>
+  <% end %>
+  <%= link_to services_path, class: "btn-floating btn-large waves-effect waves-light teal darken-1" do %>
+    <i class="material-icons">arrow_back</i>
+  <% end %>
+</div>
