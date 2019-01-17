@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :appointments
+  get "/myCalendar" => 'appointments#calendar'
   resources :calendars
   resources :services
   get 'welcome/index'

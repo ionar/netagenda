@@ -25,6 +25,8 @@ $(document).on("turbolinks:load", function() {
    window.materializeForm.init();
   $('.sidenav').sidenav();
 
+  $('.abre-calendario-hora').timepicker();
+
   $('.abre-calendario').datepicker({
   	selectMonths: true,
   	showDaysInNextAndPreviousMonths: true,
