@@ -24,8 +24,7 @@
     <tr>
       <th><%= sort_link(@q, :name, remote: true) %></th>
       <th>Whatsapp</th>
-      <th>Cidade</th>
-      <th>Estado</th>
+      <th>Cidade/Estado</th>
     </tr>
   </thead>
 
@@ -34,8 +33,7 @@
       <tr>
         <td><%= link_to client.name, client %></td>
         <td><%= client.whatsapp %></td>
-        <td><%= client.city %></td>
-        <td><%= client.province %></td>
+        <td><%= client.city %><%= (" - " + client.province) if client.province.present? %></td>
       </tr>
     <% end %>
   </tbody>

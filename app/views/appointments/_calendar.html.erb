@@ -1,3 +1,7 @@
 <%= month_calendar events: events, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |date, events| %>
-  <%= date.day %>
+  <a href="http://example.com" class="link-day">
+    <div class="calendar-day-wrapper">
+      <%= date.day %>
+    </div>
+  </a>
 <% end %>

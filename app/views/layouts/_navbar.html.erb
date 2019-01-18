@@ -27,4 +27,7 @@
       <li class="<%= active?('appointments')%>"><%= link_to 'Agendamentos', appointments_path %></li>
       <li class="<%= active?('users')%>"><%= link_to 'Configurações', edit_user_registration_path %></li>          
       <li><%= link_to destroy_user_session_path, method: :delete do %><i class="material-icons">power_settings_new</i>Sair<% end %></li>
+      <div id="events_calendar" class="side-calendar">
+        <%= render partial: "calendar", locals: {events: @appointments} %>
+      </div>
     </ul>

@@ -1,3 +1,57 @@
 // Place all the styles related to the Calendars controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.simple-calendar {
+  .day {
+    padding:0;
+    height: 50px;
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+  }
+  .day:hover {
+    background-color: #eeeeee;
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+  }
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {
+  	
+  }
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {}
+  .next-month { }
+  .current-month {}
+
+  .has-events {}
+}
+
+.calendar-day-wrapper{
+  height:100%;
+  width:100%;
+  padding: 5px;
+}
+
+.link-day{
+  outline: none;
+}
+
+.side-calendar {
+  margin: 10px;
+}

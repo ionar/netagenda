@@ -2,6 +2,7 @@
 @import "material_icons";
 @import "scaffolds";
 @import "simple_calendar";
+@import "calendars";
 
 .turbolinks-progress-bar {
   height: 5px;
@@ -26,14 +27,4 @@
   //text-transform: uppercase;
   line-height: 40px;
   //text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-}
-
-
-#calendario-flutuante{
-  border: 2px solid #18BC9C;
-  width: 300px;
-  z-index: 999;
-  position: absolute;
-  background-color: #fff;
-  margin: 10px;
 }
