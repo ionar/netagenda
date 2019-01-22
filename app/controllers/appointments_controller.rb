@@ -4,9 +4,9 @@ class AppointmentsController < ApplicationController
   # GET /appointments
   # GET /appointments.json
 
-  def calendar
-    @appointments = Appointment.all
-  end
+##  def calendar
+##    @appointments = Appointment.all
+##  end
 
   def index
     @appointments = Appointment.all
