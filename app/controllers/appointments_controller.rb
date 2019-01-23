@@ -24,6 +24,7 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments/1/edit
   def edit
+    @appointment.appointment_time = @appointment.appointment_time_only
   end
 
   # POST /appointments
@@ -74,6 +75,6 @@ class AppointmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def appointment_params
-      params.require(:appointment).permit(:name, :start_time, :client_id, :service_ids => [])
+      params.require(:appointment).permit(:name, :start_time, :client_id, :appointment_time, :service_ids => [])
     end
 end

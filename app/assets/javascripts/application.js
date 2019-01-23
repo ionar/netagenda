@@ -25,7 +25,10 @@ $(document).on("turbolinks:load", function() {
    window.materializeForm.init();
   $('.sidenav').sidenav();
 
-  $('.abre-calendario-hora').timepicker();
+  $('.abre-calendario-hora').timepicker({
+    twelveHour: false,
+  });
+  
 
   $('.abre-calendario').datepicker({
   	selectMonths: true,
