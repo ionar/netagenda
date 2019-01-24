@@ -1,5 +1,6 @@
 class Appointment < ApplicationRecord
   belongs_to :client
+  belongs_to :calendar
   has_and_belongs_to_many :services
 
 

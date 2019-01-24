@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_23_173522) do
+ActiveRecord::Schema.define(version: 2019_01_23_180936) do
 
   create_table "appointments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2019_01_23_173522) do
     t.datetime "updated_at", null: false
     t.bigint "service_id"
     t.time "appointment_time"
+    t.bigint "calendar_id"
+    t.index ["calendar_id"], name: "index_appointments_on_calendar_id"
     t.index ["client_id"], name: "index_appointments_on_client_id"
     t.index ["service_id"], name: "index_appointments_on_service_id"
   end
@@ -78,6 +80,7 @@ ActiveRecord::Schema.define(version: 2019_01_23_173522) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "appointments", "calendars"
   add_foreign_key "appointments", "clients"
   add_foreign_key "appointments", "services"
 end

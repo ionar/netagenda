@@ -3,7 +3,7 @@
 <%= render 'form', calendar: @calendar %>
 
 <div class="fixed-action-btn">
-  <%= link_to calendars_path, class: "btn-floating btn-large waves-effect waves-light teal darken-1" do %>
+  <%= link_to calendars_path, class: "btn-floating btn-large waves-effect waves-light #{Settings.tema.cor.primaria}" do %>
     <i class="material-icons">arrow_back</i>
   <% end %>
 </div>

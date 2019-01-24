@@ -71,13 +71,13 @@
 </p>
 
 <div class="fixed-action-btn">
-  <%= link_to edit_client_path(@client), class: "btn-floating btn-large waves-effect waves-light teal darken-1" do %>
+  <%= link_to edit_client_path(@client), class: "btn-floating btn-large waves-effect waves-light #{Settings.tema.cor.primaria}" do %>
     <i class="material-icons">create</i>
   <% end %>
   <%= link_to @client, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn-floating btn-large waves-effect waves-light red" do %>
     <i class="material-icons">delete</i>
   <% end %>
-  <%= link_to clients_path, class: "btn-floating btn-large waves-effect waves-light teal darken-1" do %>
+  <%= link_to clients_path, class: "btn-floating btn-large waves-effect waves-light #{Settings.tema.cor.primaria}" do %>
     <i class="material-icons">arrow_back</i>
   <% end %>
 </div>

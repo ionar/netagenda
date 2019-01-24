@@ -1,5 +1,5 @@
 <% if page.current? %>
-  <li class="active teal darken-1">
+  <li class="active <%= Settings.tema.cor.primaria %>">
     <%= content_tag :a, page %>
   </li>
 <% else %>

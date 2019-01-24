@@ -6,7 +6,8 @@
   <div class="form-inputs">
     <%= f.input :name %>
     <%= f.association :services %>
-    <%= f.input :start_time, label: "Data", input_html: { class: 'abre-calendario' } %>
+    <%= f.association :calendar %>
+    <%= f.input :schedule_on, label: "Data", input_html: { class: 'abre-calendario' } %>
     <%= f.input :appointment_time, label: "Horário", input_html: { class: 'abre-calendario-hora' } %>
     <%= f.association :client %>
   </div>

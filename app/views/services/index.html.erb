@@ -1,6 +1,6 @@
 <% @page_title = "Serviços e procedimentos" %>
 
-<nav class="teal darken-1">
+<nav class="<%= Settings.tema.cor.primaria %>">
     <div class="nav-wrapper">
       <%= search_form_for @q do |f| %>
         <div class="input-field">
@@ -35,7 +35,7 @@
 </table>
 
 <div class="fixed-action-btn">
-  <%= link_to new_service_path, class: "btn-floating btn-large waves-effect waves-light teal darken-1" do %>
+  <%= link_to new_service_path, class: "btn-floating btn-large waves-effect waves-light #{Settings.tema.cor.primaria}" do %>
     <i class="material-icons">add</i>
   <% end %>
 </div>

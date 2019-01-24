@@ -3,7 +3,7 @@
 <%= render 'form', service: @service %>
 
 <div class="fixed-action-btn">
-  <%= link_to services_path, class: "btn-floating btn-large waves-effect waves-light teal darken-1" do %>
+  <%= link_to services_path, class: "btn-floating btn-large waves-effect waves-light #{Settings.tema.cor.primaria}" do %>
     <i class="material-icons">arrow_back</i>
   <% end %>
 </div>
