@@ -4,8 +4,8 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.association :services %>
+    <%= f.input :name, placeholder: "Texto livre com uma breve descrição" %>
+    <%= f.association :services, label: "Serviços/Procedimentos" %>
     <%= f.association :calendar %>
     <%= f.input :schedule_on, label: "Data", input_html: { class: 'abre-calendario' } %>
     <%= f.input :appointment_time, label: "Horário", input_html: { class: 'abre-calendario-hora' } %>

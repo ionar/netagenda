@@ -1,0 +1,22 @@
+<% @page_title = @user.email %>
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Calendario:</strong>
+  <%= @user.calendar.name if @user.calendar.present? %>
+</p>
+
+<div class="fixed-action-btn">
+  <%= link_to edit_user_path(@user), class: "btn-floating btn-large waves-effect waves-light #{Settings.tema.cor.primaria}" do %>
+    <i class="material-icons">create</i>
+  <% end %>
+  <%= link_to @user, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn-floating btn-large waves-effect waves-light red" do %>
+    <i class="material-icons">delete</i>
+  <% end %>
+  <%= link_to users_path, class: "btn-floating btn-large waves-effect waves-light #{Settings.tema.cor.primaria}" do %>
+    <i class="material-icons">arrow_back</i>
+  <% end %>
+</div>

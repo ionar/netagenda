@@ -1,0 +1,42 @@
+<% @page_title = "Usuários" %>
+
+<nav class="<%= Settings.tema.cor.primaria %>">
+    <div class="nav-wrapper">
+      <%= search_form_for @q do |f| %>
+        <div class="input-field">
+          <%= f.search_field :email_cont, placeholder: "Buscar pelo email" %>
+          <%= f.label :email_cont, class: "label-icon" do %>
+            <i class="material-icons">search</i>
+          <% end %>
+          <i class="material-icons">close</i>
+        </div>
+      <% end %>
+    </div>
+  </nav>
+<div class="center-align">
+  <%= paginate @users, views_prefix: 'paginator' %>
+  <small><%= page_entries_info @users %></small>
+</div>
+
+
+<table class="highlight">
+  <thead>
+    <tr>
+      <th><%= sort_link(@q, :email, remote: true) %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.email, user %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="fixed-action-btn">
+  <%= link_to new_user_path, class: "btn-floating btn-large waves-effect waves-light #{Settings.tema.cor.primaria}" do %>
+    <i class="material-icons">add</i>
+  <% end %>
+</div>

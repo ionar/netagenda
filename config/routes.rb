@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   get 'welcome/index'
   resources :clients
   root to: 'welcome#index'
-  devise_for :users
+  devise_for :users, :path_prefix => 'my', controllers: {
+        sessions: 'users/sessions'
+  }
+  resources :users
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   ##get "/myCalendar" => 'appointments#calendar'
 end

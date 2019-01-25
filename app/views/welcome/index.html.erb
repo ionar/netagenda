@@ -1,3 +1,12 @@
 <% @page_title = Settings.institutional.name %>
-<h1>Welcome#index</h1>
+<h2>Welcome</h2>
+<h3><%= current_user.email %></h3>
 <p><%= Settings.tema.cor.primaria %></p>
+
+
+<% @user = User.find(current_user.id) %>
+	<%= simple_form_for(@user, :html=> { class: 'navbar-form' }) do |f| %>
+		<div class="form-group">
+			<%= f.association :calendar, :input_html => {:onchange => '$(this.form).submit();', :class => 'form-control' }, :label => false, label_method: :name, value_method: :id, prompt: t('select') %>
+		</div>
+	<% end %>

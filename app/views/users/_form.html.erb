@@ -1,12 +1,14 @@
-<%= simple_form_for(@service) do |f| %>
+
+<%= simple_form_for(@user) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :name, label: 'Nome' %>
+    <%= f.input :email, label: 'Email' %>
+    <%= f.input :password, label: 'Senha' %>
   </div>
 
-    <div class="form-actions">
+	<div class="form-actions">
        <%= link_to 'Cancelar', :back, :class => 'waves-effect waves-light btn grey darken-1' %>
         <%= button_tag(type: 'submit', class: "btn waves-effect waves-light blue") do %>
         Salvar <i class="material-icons right">done</i>
