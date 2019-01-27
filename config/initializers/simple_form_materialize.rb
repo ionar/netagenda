@@ -7,6 +7,7 @@ SimpleForm.setup do |config|
   config.item_wrapper_tag = :p
 
   config.wrappers :materialize_form, tag: 'div', class: 'input-field col', error_class: 'has-error' do |b|
+  ##config.wrappers :materialize_form, tag: 'div', class: 'input-field ', error_class: 'has-error' do |b|
     b.use :html5
     b.use :placeholder
     b.optional :maxlength

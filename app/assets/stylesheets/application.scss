@@ -8,25 +8,22 @@
   height: 5px;
   background-color: red;
 }
-
 .faixa-titulos{
   background: #ecf0f1;
   margin-bottom: 20px;
 }
-
-.titulo-bc h3 {
+.titulos-wrapper{
+  height: 75px;
+}
+.titulos{
   color: #999;
-  font-size: 1.5em !important;
+  ////font-size: 1.5em !important;
   font-weight: bold;
-  margin: 0;
-  text-align: left;  
-  vertical-align: middle;
-  display:inline-block; 
-  padding: 10px;
-  //border-bottom: 1px solid #999;
-  //text-transform: uppercase;
-  line-height: 40px;
-  //text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  ////vertical-align: middle;
+  ////display:inline-block; 
+  ////padding-top: 17px;
+  ////padding-bottom: 17px;
+  //line-height: 40px;
 }
 .num-attends{
   color: #ff0000;

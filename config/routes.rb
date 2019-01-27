@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :calendars
   resources :services
   get 'welcome/index'
+  get 'welcome/success'
   resources :clients
   root to: 'welcome#index'
   devise_for :users, :path_prefix => 'my', controllers: {

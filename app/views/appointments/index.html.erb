@@ -1,11 +1,16 @@
-<% @page_title = "Agendamento" %>
+<% @page_title = "Agendamentos" %>
 <%# Settings.institutional.name %>
 
 <div class="row">
   <div class="col xl4 l4 s12 m12 hide-on-med-and-down">
-    <div id="events_calendar">
-      <%= render partial: "appointments/calendar", locals: {events: @appointments} %>
-    </div>
+    <div class="card <%# Settings.tema.cor.primaria %>">
+
+        <div id="events_calendar">
+          <%= render partial: "appointments/calendar", locals: {events: @appointments} %>
+        </div>
+
+    </div><!-- /card -->         
+    
   </div><!-- /col -->
   <div class="col xl8 l8 s12 m12">
     <table>

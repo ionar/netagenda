@@ -20,9 +20,14 @@
       <%= render 'layouts/navbar' %>
       <div class="faixa-titulos">
         <div class="container">
-          <div class="titulo-bc">
-            <h3><%= @page_title || "Coloque um titulo aqui" %></h3>
-          </div><!-- /titulo-bc -->
+          <div class="row">
+            <div class="col xl9 l9 m8 s12 titulos-wrapper valign-wrapper">
+                <span class="titulos flow-text"><%= @page_title || "Coloque um titulo aqui" %></span>
+            </div><!-- /col-->
+            <div class="col xl3 l3 m4 s12">
+              <%= render 'layouts/calendarselect' if request.env['PATH_INFO'] == '/appointments' %>
+            </div><!-- /col-->
+          </div><!-- /row -->
         </div><!-- /container -->
       </div><!-- /faixa-titulos -->
     <% end %>
