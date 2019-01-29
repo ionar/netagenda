@@ -30,7 +30,7 @@
       <li><%= link_to 'Configurações', edit_user_registration_path %></li>          
       <li><%= link_to destroy_user_session_path, method: :delete do %><i class="material-icons">power_settings_new</i>Sair<% end %></li>
       <div id="events_calendar_side" class="side-calendar">
-        <% if request.env['PATH_INFO'] == '/appointments' %>
+        <% if request.env['PATH_INFO'] == '/appointments' and current_user.calendar %>
           <%= render partial: "appointments/calendar", locals: {events: @appointments} %>
         <% end %>
       </div>

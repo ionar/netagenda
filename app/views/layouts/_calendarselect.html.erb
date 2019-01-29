@@ -1,4 +1,5 @@
  <% @user = User.find(current_user.id) %>
     <%= simple_form_for(@user, :html=> { class: '' }) do |f| %>
+    	<%= hidden_field_tag 'ondeestou', request.env['PATH_INFO'] %>
         <%= f.association :calendar, wrapper_html: { class: 'xl4 l4 m4 s12' }, :input_html => {:onchange => '$(this.form).submit();', :class => 'browser-default'}, :label => false, label_method: :name, value_method: :id, prompt: t('select') %>
     <% end %>  

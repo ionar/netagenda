@@ -12,13 +12,13 @@ module ApplicationHelper
 	def materialize_class_for(flash_type)
 		case flash_type
 		when "success"
-		"blue darken-1"
+		"deep-purple darken-1"
 		when "error"
 		"red darken-1"
 		when "alert"
 		"yellow darken-2"
 		when "notice"
-		"deep-purple darken-1"
+		"blue darken-1"
 		else
 		flash_type.to_s
 		end

@@ -1,6 +1,29 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
 
+
+    def diasel
+    @calendars = Calendar.where(nil)
+    #@calendars = @calendars.para_o_institute(my_institute.id)
+    #render text: "Action diasel"
+    
+    #@attends = Attend.where("clinic_id = ?", current_user.clinic_id)
+    #@attends = @attends.para_o_dia(params[:dia]) if params[:dia].present?
+    ##if params[:dia].present?
+    ##  @attends = @attends.para_a_clinica(current_user.clinic_id).para_o_dia(params[:dia])
+    ## else
+    ##  @attends = @attends.para_a_clinica(current_user.clinic_id).para_o_dia(Date.current)
+    ##end
+    
+    ##@appointments = Appointment.where(nil)
+    ##@appointments = @appointments.para_o_institute(my_institute.id).para_o_dia(params[:dia])
+    @appointments = Appointment.all
+    
+    respond_to do |format|
+      format.js
+    end
+  end
+
   # GET /appointments
   # GET /appointments.json
 

@@ -46,13 +46,22 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
 
+    # params via hidden_field para voltar a tela de appointments
+    praonde = params[:ondeestou] #/appointments
+
     if params[:user][:password].blank?
       params[:user].delete(:password)
       params[:user].delete(:password_confirmation)
     end
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: t('update_success') }
+        format.html { 
+          if praonde
+            redirect_to praonde, notice: "Agenda alterada"
+          else
+            redirect_to @user, notice: t('update_success') 
+          end
+        }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
