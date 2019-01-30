@@ -24,7 +24,7 @@ module ApplicationHelper
 		end
 	end
 
-		def icon_type_for(flash_type)
+	def icon_type_for(flash_type)
 		case flash_type
 		when "success"
 		"done"
@@ -38,4 +38,12 @@ module ApplicationHelper
 		flash_type.to_s
 		end
 	end
+
+	def dia_selected_helper
+	    if params[:dia].present?
+	      return Date.parse(params[:dia])
+	    else
+	      return Date.current
+	    end
+  	end
 end

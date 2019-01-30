@@ -1,24 +1,11 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
+  before_action :dia_selected
 
+  def diasel
+    @appointments = Appointment.where(nil)
+    @appointments = @appointments.para_o_calendar(current_user.calendar_id).para_o_dia(dia_selected)
 
-    def diasel
-    @calendars = Calendar.where(nil)
-    #@calendars = @calendars.para_o_institute(my_institute.id)
-    #render text: "Action diasel"
-    
-    #@attends = Attend.where("clinic_id = ?", current_user.clinic_id)
-    #@attends = @attends.para_o_dia(params[:dia]) if params[:dia].present?
-    ##if params[:dia].present?
-    ##  @attends = @attends.para_a_clinica(current_user.clinic_id).para_o_dia(params[:dia])
-    ## else
-    ##  @attends = @attends.para_a_clinica(current_user.clinic_id).para_o_dia(Date.current)
-    ##end
-    
-    ##@appointments = Appointment.where(nil)
-    ##@appointments = @appointments.para_o_institute(my_institute.id).para_o_dia(params[:dia])
-    @appointments = Appointment.all
-    
     respond_to do |format|
       format.js
     end
@@ -32,7 +19,22 @@ class AppointmentsController < ApplicationController
 ##  end
 
   def index
-    @appointments = Appointment.all
+    ##@appointments = Appointment.all
+    @appointments = Appointment.where(nil)
+    @appointments = @appointments.para_o_calendar(current_user.calendar_id).para_o_dia(dia_selected)
+
+    if params[:start_date].present?
+      mes_para_consulta = params[:start_date].to_date
+    else
+      mes_para_consulta = Date.current
+    end
+
+    beginning_of_month = mes_para_consulta.beginning_of_month
+    end_of_month = beginning_of_month.end_of_month
+
+    @appointments_todos = Appointment.where(schedule_on: beginning_of_month..end_of_month)
+    @appointments_todos = @appointments_todos.para_o_calendar(current_user.calendar_id)
+
   end
 
   # GET /appointments/1
@@ -98,6 +100,14 @@ class AppointmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def appointment_params
-      params.require(:appointment).permit(:name, :schedule_on, :calendar_id, :client_id, :appointment_time, :service_ids => [])
+      params.require(:appointment).permit(:finalized, :name, :schedule_on, :calendar_id, :client_id, :appointment_time, :service_ids => [])
+    end
+
+    def dia_selected
+      if params[:dia].present?
+        return Date.parse(params[:dia])
+      else
+        return Date.current
+      end
     end
 end

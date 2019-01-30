@@ -10,6 +10,7 @@
     <%= f.input :schedule_on, label: "Data", input_html: { class: 'abre-calendario' } %>
     <%= f.input :appointment_time, label: "Horário", input_html: { class: 'abre-calendario-hora' } %>
     <%= f.association :client %>
+    <%= f.input :finalized %>
   </div>
 
   <div class="form-actions">
