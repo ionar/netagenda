@@ -1,0 +1,21 @@
+<% @page_title = "Cadastros" %>
+	<div class="collection">
+
+		<%= link_to calendars_path, class: "collection-item #{Settings.tema.cor.link}" do %>
+		<i class="material-icons right">view_compact</i>Calendários
+		<% end %>
+
+		<%= link_to clients_path, class: "collection-item #{Settings.tema.cor.link}" do %>
+		<i class="material-icons right">group</i>Clientes
+		<% end %>
+
+
+		<%= link_to services_path, class: "collection-item #{Settings.tema.cor.link}" do %>
+		<i class="material-icons right">build</i>Serviços
+		<% end %>
+
+
+		<%= link_to users_path, class: "collection-item #{Settings.tema.cor.link}" do %>
+		<i class="material-icons right">person_outline</i>Usuários
+		<% end %>
+	</div><!-- /colection -->	

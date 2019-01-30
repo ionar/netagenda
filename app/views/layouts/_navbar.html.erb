@@ -8,11 +8,8 @@
          <% end %>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-          <li class="<%= active?('clients')%>"><%= link_to 'Clientes', clients_path %></li>
-          <li class="<%= active?('services')%>"><%= link_to 'Serviços', services_path %></li>
-          <li class="<%= active?('calendars')%>"><%= link_to 'Calendarios', calendars_path %></li>
           <li class="<%= active?('appointments')%>"><%= link_to 'Agendamentos', appointments_path %></li>
-          <li class="<%= active?('users')%>"><%= link_to 'Usuários', users_path %></li>
+          <li class="<%= active?('welcome')%>"><%= link_to 'Cadastros', welcome_cadastros_path %></li>
           <li><%= link_to edit_user_registration_path do %><i class="material-icons">settings</i><% end %></li>                   
           <li><%= link_to destroy_user_session_path, method: :delete do %><i class="material-icons">power_settings_new</i><% end %></li>
         </ul>
@@ -21,17 +18,13 @@
   </nav>
 </div><!-- /.navbar-fixed -->
     <ul class="sidenav" id="mobile-demo">
-      <li><a class="sidenav-close" href="#!"><i class="material-icons">close</i></a></li>
-      <li class="<%= active?('clients')%>"><%= link_to 'Clientes', clients_path %></li>
-      <li class="<%= active?('services')%>"><%= link_to 'Serviços', services_path %></li>
-      <li class="<%= active?('calendars')%>"><%= link_to 'Calendarios', calendars_path %></li>
-      <li class="<%= active?('appointments')%>"><%= link_to 'Agendamentos', appointments_path %></li>
-      <li class="<%= active?('users')%>"><%= link_to 'Usuários', users_path %></li>
+          <li class="<%= active?('appointments')%>"><%= link_to 'Agendamentos', appointments_path %></li>
+          <li class="<%= active?('welcome')%>"><%= link_to 'Cadastros', welcome_cadastros_path %></li>
       <li><%= link_to 'Configurações', edit_user_registration_path %></li>          
       <li><%= link_to destroy_user_session_path, method: :delete do %><i class="material-icons">power_settings_new</i>Sair<% end %></li>
       <div id="events_calendar_side" class="side-calendar">
         <% if request.env['PATH_INFO'] == '/appointments' and current_user.calendar %>
-          <%= render partial: "appointments/calendar", locals: {events: @appointments} %>
+          <%= render partial: "appointments/calendar", locals: {events: @appointments_todos} %>
         <% end %>
       </div>
     </ul>
