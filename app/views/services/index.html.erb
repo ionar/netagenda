@@ -1,6 +1,6 @@
 <% @page_title = "Serviços e procedimentos" %>
 
-<nav class="<%= Settings.tema.cor.primaria %>">
+<nav class="<%= Settings.tema.cor.secundaria %>">
     <div class="nav-wrapper">
       <%= search_form_for @q do |f| %>
         <div class="input-field">
@@ -21,14 +21,14 @@
 <table class="highlight">
   <thead>
     <tr>
-      <th><%= sort_link(@q, :name, remote: true) %></th>
+      <th><%= sort_link(@q, :name, 'Nome', { :remote => true, :method => :get }, {class: Settings.tema.cor.link}) %></th>
     </tr>
   </thead>
 
   <tbody>
     <% @services.each do |service| %>
       <tr>
-        <td><%= link_to service.name, service %></td>
+        <td><%= link_to service.name, service, class: Settings.tema.cor.link %></td>
       </tr>
     <% end %>
   </tbody>

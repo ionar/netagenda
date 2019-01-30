@@ -1,7 +1,7 @@
 <% @page_title = "Clientes" %>
 <%# Settings.institutional.name %>
 
-<nav class="<%= Settings.tema.cor.primaria %>">
+<nav class="<%= Settings.tema.cor.secundaria %>">
     <div class="nav-wrapper">
       <%= search_form_for @q do |f| %>
         <div class="input-field">
@@ -22,7 +22,7 @@
 <table class="highlight">
   <thead>
     <tr>
-      <th><%= sort_link(@q, :name, remote: true) %></th>
+      <th><%= sort_link(@q, :name, 'Nome', { :remote => true, :method => :get }, {class: Settings.tema.cor.link}) %></th>
       <th>Whatsapp</th>
       <th>Cidade/Estado</th>
     </tr>
@@ -31,7 +31,7 @@
   <tbody>
     <% @clients.each do |client| %>
       <tr>
-        <td><%= link_to client.name, client %></td>
+        <td><%= link_to client.name, client, class: Settings.tema.cor.link %></td>
         <td><%= client.whatsapp %></td>
         <td><%= client.city %><%= (" - " + client.province) if client.province.present? %></td>
       </tr>

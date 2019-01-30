@@ -1,6 +1,6 @@
 <% @page_title = "Usuários" %>
 
-<nav class="<%= Settings.tema.cor.primaria %>">
+<nav class="<%= Settings.tema.cor.secundaria %>">
     <div class="nav-wrapper">
       <%= search_form_for @q do |f| %>
         <div class="input-field">
@@ -22,14 +22,14 @@
 <table class="highlight">
   <thead>
     <tr>
-      <th><%= sort_link(@q, :email, remote: true) %></th>
+      <th><%= sort_link(@q, :email, 'Email', { :remote => true, :method => :get }, {class: Settings.tema.cor.link}) %></th>
     </tr>
   </thead>
 
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= link_to user.email, user %></td>
+        <td><%= link_to user.email, user, class: Settings.tema.cor.link %></td>
       </tr>
     <% end %>
   </tbody>
