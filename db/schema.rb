@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_30_173557) do
+ActiveRecord::Schema.define(version: 2019_02_04_174911) do
 
   create_table "appointments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2019_01_30_173557) do
     t.time "appointment_time"
     t.bigint "calendar_id"
     t.boolean "finalized"
+    t.text "notes"
     t.index ["calendar_id"], name: "index_appointments_on_calendar_id"
     t.index ["client_id"], name: "index_appointments_on_client_id"
     t.index ["service_id"], name: "index_appointments_on_service_id"

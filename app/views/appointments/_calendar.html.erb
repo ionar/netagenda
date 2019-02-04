@@ -1,5 +1,5 @@
 <%= month_calendar events: events, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |date, event| %>
-	<%= link_to qual_dia_path(:dia => date, :calendar => current_user.calendar), :remote => true, class: "link-day sidenav-close" do %>
+	<%= link_to qual_dia_path(:dia => date, :calendar => current_user.calendar_id), :remote => true, class: "link-day sidenav-close" do %>
 	    <div class="calendar-day-wrapper">
 	      <%= date.day %>
 

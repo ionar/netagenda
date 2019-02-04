@@ -44,7 +44,15 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments/new
   def new
+    puts dia_selected
     @appointment = Appointment.new
+
+    @appointment.calendar_id = current_user.calendar_id
+    @appointment.schedule_on = dia_selected
+
+    if params[:hora].present?
+       @appointment.appointment_time = params[:hora]
+    end
   end
 
   # GET /appointments/1/edit
@@ -100,7 +108,7 @@ class AppointmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def appointment_params
-      params.require(:appointment).permit(:finalized, :name, :schedule_on, :calendar_id, :client_id, :appointment_time, :service_ids => [])
+      params.require(:appointment).permit(:notes, :finalized, :name, :schedule_on, :calendar_id, :client_id, :appointment_time, :service_ids => [])
     end
 
     def dia_selected

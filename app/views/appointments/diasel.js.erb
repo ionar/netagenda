@@ -1,1 +1,3 @@
+$("#lista-horarios").hide();
 $("#lista-horarios").html("<%= escape_javascript render(partial: 'listagem', locals: {appointments: @appointments}) %>");
+$("#lista-horarios").fadeIn();

@@ -21,7 +21,7 @@
 
 <p>
   <strong>Client:</strong>
-  <%= @appointment.client.name %>
+  <%= @appointment.client.name if @appointment.client.present? %>
 </p>
 
 <%= link_to 'Edit', edit_appointment_path(@appointment) %> |

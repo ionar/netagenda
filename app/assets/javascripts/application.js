@@ -7,11 +7,22 @@
 //= require_tree .
 
 $(document).on('nested:fieldAdded', function(event){
+
+
+
   window.materializeForm.init()
 });
 
 $(document).on("turbolinks:load", function() {
   console.log("LOAD rodou");
+  var d = new Date();
+  d.setDate(d.getDate());
+  console.log(d);
+
+  //$(".link-day").click(function(){
+  //  $("#lista-horarios").fadeOut();
+  //});
+
   // cocoon gem, open new input after existent
   ////$("#weighings a.add_fields").data("association-insertion-method", 'before').data("association-insertion-node", 'this');
 
@@ -37,12 +48,13 @@ $(document).on("turbolinks:load", function() {
     yearRange: 100,
     autoClose: false,
     container: 'body',
-    setDefaultDate: true,
+    setDefaultDate: false,
     showClearBtn: true,
     // Formato da data que aparece no input
-    format: 'dd/mm/yyyy',
+    ////format: 'yyyy-mm-dd',
+    format: 'dd-mm-yyyy',
     allowInputToggle: true,
-    //formatSubmit: 'yyyy/mm/dd', configurado em initilizers/time_formats.rb
+    formatSubmit: 'dd-mm-yyyy', //configurado ou nao em initilizers/time_formats.rb
     onClose: function() {
       $(document.activeElement).blur()
     },
