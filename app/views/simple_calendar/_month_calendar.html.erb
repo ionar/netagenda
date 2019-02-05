@@ -1,13 +1,11 @@
 <div class="simple-calendar">
   <div class="calendar-heading center-align">
-    <ul class="pagination">
-    <li class="waves-effect <%= Settings.tema.cor.primaria %>"><%= link_to t('simple_calendar.previous', default: '<i class="material-icons">chevron_left</i>'.html_safe), calendar.url_for_previous_view, remote: true %></li>
-    <li class="disabled"><a class="calendar-title flow-text"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></a></li>
-    <li class="waves-effect <%= Settings.tema.cor.primaria %>"><%= link_to t('simple_calendar.next', default: '<i class="material-icons">chevron_right</i>'.html_safe), calendar.url_for_next_view, remote: true %></li>
-    </ul><!-- /pagination -->
+    <%= link_to t('simple_calendar.previous', default: '<i class="material-icons">chevron_left</i>'.html_safe), calendar.url_for_previous_view, remote: true, class: "waves-effect waves-light btn-small #{Settings.tema.cor.primaria}" %>
+    <a class="calendar-title btn-small disabled"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></a>
+    <%= link_to t('simple_calendar.next', default: '<i class="material-icons">chevron_right</i>'.html_safe), calendar.url_for_next_view, remote: true, class: "waves-effect waves-light btn-small #{Settings.tema.cor.primaria}" %>
   </div>
 
-  <table class="table table-striped">
+  <table class="table">
     <thead>
       <tr>
         <% date_range.slice(0, 7).each do |day| %>

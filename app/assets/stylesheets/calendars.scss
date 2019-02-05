@@ -3,6 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .simple-calendar {
+  .calendar-heading{
+    margin-bottom: 5px;  
+  }
   .day {
     padding:0;
     height: 45px;

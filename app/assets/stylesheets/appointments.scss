@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #events_calendar {
-	border: 1px solid #ff0000;
-	position:relative;
+	//border: 1px solid #ff0000;
+	position:fixed;
+	z-index:999;
 }
