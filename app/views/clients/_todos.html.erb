@@ -1,0 +1,59 @@
+  <!-- Modal Structure -->
+
+<div class="modal-content">
+    <h4>Selecionar cliente</h4>
+    <nav class="<%= Settings.tema.cor.secundaria %>">
+    <div class="nav-wrapper">
+      <%= search_form_for @q, remote: true do |f| %>
+        <div class="input-field">
+          <%= f.search_field :name_cont, placeholder: "Buscar pelo nome" %>
+          <%= f.label :name_cont, class: "label-icon" do %>
+            <i class="material-icons">search</i>
+          <% end %>
+          <i class="material-icons">close</i>
+        </div>
+      <% end %>
+    </div>
+  </nav>
+<div class="center-align">
+  <%= paginate @clients, remote: true, views_prefix: 'paginator' %>
+  <small><%= page_entries_info @clients %></small>
+</div>
+
+<table class="highlight">
+  <thead>
+    <tr>
+      <th><%= sort_link(@q, :name, 'Nome', {}, {remote: true, class: Settings.tema.cor.link}) %></th>
+      <th>Whatsapp</th>
+      <th>Cidade/Estado</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clients.each do |client| %>
+      <tr>
+        <td>
+          <a class="link-paciente-selecao <%= Settings.tema.cor.link %>" onclick="
+            $('#appointment_client_id').val('<%= client.id %>');
+            $('#appointment_client_name').val('<%= client.name %>');
+            $('#appointment_client_endereco').val('<%= client.address %>');
+            $('#appointment_client_cidade').val('<%= client.city %> - <%= client.province %>');
+            $('#appointment_client_cpf').val('<%= client.cpf %>');
+            $('#appointment_client_endereco').html('<%= client.address %>');
+            $('#appointment_client_cidade').html('<%= client.city %> - <%= client.province %>');
+            $('#appointment_client_cpf').html('<%= client.cpf %>');
+            $('#appointment_client_name').html('<%= client.name %>');
+            $('#appointment_client_nascimento').html('<%= client.birth_date.strftime("%d/%m/%Y") if client.birth_date.present? %>');
+            $('#modal1').modal('close');
+            "><%= client.name %></a>
+        </td>
+        <td><%= client.whatsapp %></td>
+        <td><%= client.city %><%= (" - " + client.province) if client.province.present? %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<div class="modal-footer">
+  <a href="" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+</div>

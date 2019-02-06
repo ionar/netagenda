@@ -25,7 +25,8 @@ $(document).on("turbolinks:load", function() {
 
   // cocoon gem, open new input after existent
   ////$("#weighings a.add_fields").data("association-insertion-method", 'before').data("association-insertion-node", 'this');
-
+  M.Modal._count = 0; 
+  $('.modal').modal();
   M.textareaAutoResize($('.materialize-textarea'));
   M.updateTextFields();
   $('select').formSelect();

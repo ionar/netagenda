@@ -7,3 +7,19 @@
 	position:fixed;
 	z-index:999;
 }
+
+#modal1{
+	width: 75% !important;
+	//height: 100% !important;
+	max-height: 90% !important;
+}
+
+.painel-vincular{
+	border: 1px solid #eee;
+	padding: 10px;
+	margin-bottom: 20px;
+}
+
+.link-paciente-selecao{
+  cursor: pointer;
+}

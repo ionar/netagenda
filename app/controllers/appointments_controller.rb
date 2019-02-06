@@ -53,6 +53,7 @@ class AppointmentsController < ApplicationController
     if params[:hora].present?
        @appointment.appointment_time = params[:hora]
     end
+    
   end
 
   # GET /appointments/1/edit
@@ -63,7 +64,22 @@ class AppointmentsController < ApplicationController
   # POST /appointments
   # POST /appointments.json
   def create
+    if params[:start_date].present?
+      mes_para_consulta = params[:start_date].to_date
+    else
+      mes_para_consulta = Date.current
+    end
+
+    beginning_of_month = mes_para_consulta.beginning_of_month
+    end_of_month = beginning_of_month.end_of_month
+
+    @appointments_todos = Appointment.where(schedule_on: beginning_of_month..end_of_month)
+    @appointments_todos = @appointments_todos.para_o_calendar(current_user.calendar_id)
+
+
+
     @appointment = Appointment.new(appointment_params)
+    @appointment.calendar_id = current_user.calendar_id
 
     respond_to do |format|
       if @appointment.save

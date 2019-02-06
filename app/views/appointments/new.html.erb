@@ -3,7 +3,7 @@
 <%= render 'form', appointment: @appointment %>
 
 <div class="fixed-action-btn">
-  <%= link_to appointments_path, class: "btn-floating btn-large waves-effect waves-light #{Settings.tema.cor.primaria}" do %>
+  <%= link_to :back, class: "btn-floating btn-large waves-effect waves-light #{Settings.tema.cor.primaria}" do %>
     <i class="material-icons">arrow_back</i>
   <% end %>
 </div>

@@ -22,7 +22,7 @@
 <table class="highlight">
   <thead>
     <tr>
-      <th><%= sort_link(@q, :name, 'Nome', { :remote => true, :method => :get }, {class: Settings.tema.cor.link}) %></th>
+      <th><%= sort_link(@q, :name, 'Nome', {}, {remote: false, class: Settings.tema.cor.link}) %></th>
     </tr>
   </thead>
 

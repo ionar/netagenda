@@ -20,9 +20,13 @@
 </div>
 
 <table class="highlight">
+<!--
+  sort_link (@ search,: column name, display name, url option, html option)
+ex: = sort_link(@q, :name, "Your_Column_Name", {}, {remote: true})
+-->
   <thead>
     <tr>
-      <th><%= sort_link(@q, :name, 'Nome', { :remote => true, :method => :get }, {class: Settings.tema.cor.link}) %></th>
+      <th><%= sort_link(@q, :name, 'Nome', {}, {remote: false, class: Settings.tema.cor.link}) %></th>
       <th>Whatsapp</th>
       <th>Cidade/Estado</th>
     </tr>

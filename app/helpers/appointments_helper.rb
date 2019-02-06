@@ -17,17 +17,18 @@ def apontamento(hora)
     @atendimentos = @appointments.where(appointment_time: inicio_periodo..fim_do_periodo)
     if (@atendimentos.length != 0)
       concatenada = ""
+      ##Mostrar botao para adicionar mais um agendamento para o mesmo horario
+      concatenada << link_to("<i class='material-icons'>add</i>".html_safe, new_appointment_path(:dia => dia_selected_helper, :hora => hora), class: "waves-effect waves-light btn-small #{Settings.tema.cor.primaria}")      
+      
       @atendimentos.each do |consulta|
+        concatenada << " "
         if consulta.finalized == true
           concatenada << link_to("<i class='material-icons left'>check_box</i> #{consulta.name}".html_safe, consulta, class: "waves-effect waves-light btn-small blue")
         else
           concatenada << link_to("<i class='material-icons left'>access_time</i> #{consulta.name}".html_safe, consulta, class: "waves-effect waves-light btn-small orange")
-        end
-        concatenada << " "        
+        end   
       end
-      ##Mostrar botao para adicionar mais um agendamento para o mesmo horario
-      concatenada << link_to("<i class='material-icons'>add</i>".html_safe, new_appointment_path(:dia => dia_selected_helper, :hora => hora), class: "waves-effect waves-light btn-small #{Settings.tema.cor.primaria}")
-      
+            
       return  "<span class='badge'>#{hora}</span> #{concatenada}".html_safe
 
       ##return "aqui tem #{@atendimentos.length} - #{concatenada}".html_safe + " <span class='badge'>#{hora}</span>".html_safe
