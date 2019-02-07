@@ -45,4 +45,13 @@ end
   	return @appointments.length
   end
 
+  def vinculo_msg(agendamento)
+    agendamento = agendamento
+    if agendamento.client.present?
+      return '<div><span class="flow-text white-text">Vinculado ao cadastro</span><span class="secondary-content"><i class="material-icons flow-text white-text">check</i></span></div>'.html_safe
+    else
+      return '<div><span class="flow-text white-text">Não vinculado ao cadastro</span><span class="secondary-content"><i class="material-icons flow-text white-text">announcement</i></span></div>'.html_safe
+    end
+  end
+
 end

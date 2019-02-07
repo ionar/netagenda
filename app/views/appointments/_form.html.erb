@@ -13,15 +13,14 @@
     <%= f.input :finalized, label: 'Atendimento finalizado?' %>    
   </div>
 
-  <div class="painel-vincular">
-    <span>Nome Completo: </span><span id="appointment_client_name" class="panel-client"><%= @appointment.client.name if @appointment.client.present? %></span><br>
-    <span>CPF: </span><span id="appointment_client_cpf" class="panel-client"><%= @appointment.client.cpf if @appointment.client.present?%></span><br>
-    <span>Endereço: </span><span id="appointment_client_endereco" class="panel-client"><%= @appointment.client.address if @appointment.client.present? %></span><br>
-    <span>Cidade/UF: </span><span id="appointment_client_cidade" class="panel-client"><%= @appointment.client.city if @appointment.client.present?%> / <%= @appointment.client.province if @appointment.client.present?%></span><br>
-    <span>Nascimento: </span><span id="appointment_client_nascimento" class="panel-client"><%= @appointment.client.birth_date.strftime("%d/%m/%Y") if (@appointment.client.present? and @appointment.client.birth_date.present?) %></span><br>
-  </div><!-- /painel-vincular -->
-    <!-- Modal Trigger -->
-<%= link_to 'Vincular ao cadastro de clientes', clients_path, remote: true, class: "waves-effect waves-light btn #{Settings.tema.cor.primaria}" %>
+   <ul class="collection with-header">
+        <li class="collection-header <%= Settings.tema.cor.primaria %>"><%= vinculo_msg(@appointment) %></li>
+        <li class="collection-item"><div><span>Nome Completo: </span><span id="appointment_client_name" class="panel-client"><%= @appointment.client.name if @appointment.client.present? %></span><%= link_to clients_path, remote: true, class: "secondary-content waves-effect waves-light btn #{Settings.tema.cor.primaria} pulse" do %><i class="material-icons">assignment_ind</i><% end %></div></li>
+        <li class="collection-item"><span>CPF: </span><span id="appointment_client_cpf" class="panel-client"><%= @appointment.client.cpf if @appointment.client.present?%></span></li>
+        <li class="collection-item"><span>Endereço: </span><span id="appointment_client_endereco" class="panel-client"><%= @appointment.client.address if @appointment.client.present? %></span></li>
+        <li class="collection-item"><span>Cidade/UF: </span><span id="appointment_client_cidade" class="panel-client"><%= @appointment.client.city if @appointment.client.present?%> / <%= @appointment.client.province if @appointment.client.present?%></span></li>
+        <li class="collection-item"><span>Nascimento: </span><span id="appointment_client_nascimento" class="panel-client"><%= @appointment.client.birth_date.strftime("%d/%m/%Y") if (@appointment.client.present? and @appointment.client.birth_date.present?) %></span></li>
+      </ul>
 
     <div class="form-actions">
        <%= link_to 'Cancelar', :back, :class => 'waves-effect waves-light btn grey darken-1' %>
@@ -30,8 +29,6 @@
       <% end %>
     </div><!-- /.form-actions -->
 <% end %>
-
-
 
 <div id="modal1" class="modal">
 </div>

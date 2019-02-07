@@ -1,7 +1,5 @@
-  <!-- Modal Structure -->
-
+<!-- Modal Structure -->
 <div class="modal-content">
-    <h4>Selecionar cliente</h4>
     <nav class="<%= Settings.tema.cor.secundaria %>">
     <div class="nav-wrapper">
       <%= search_form_for @q, remote: true do |f| %>
@@ -24,8 +22,8 @@
   <thead>
     <tr>
       <th><%= sort_link(@q, :name, 'Nome', {}, {remote: true, class: Settings.tema.cor.link}) %></th>
-      <th>Whatsapp</th>
-      <th>Cidade/Estado</th>
+      <th class="hide-on-med-and-down">Whatsapp</th>
+      <th class="hide-on-med-and-down">Cidade/Estado</th>
     </tr>
   </thead>
 
@@ -47,13 +45,15 @@
             $('#modal1').modal('close');
             "><%= client.name %></a>
         </td>
-        <td><%= client.whatsapp %></td>
-        <td><%= client.city %><%= (" - " + client.province) if client.province.present? %></td>
+        <td class="hide-on-med-and-down"><%= client.whatsapp %></td>
+        <td class="hide-on-med-and-down"><%= client.city %><%= (" - " + client.province) if client.province.present? %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 </div>
+<!--
 <div class="modal-footer">
   <a href="" class="modal-close waves-effect waves-green btn-flat">Agree</a>
 </div>
+-->
