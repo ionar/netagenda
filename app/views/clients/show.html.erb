@@ -82,21 +82,15 @@
   <% end %>
 </div>
 
-
-<h5><i class="tiny material-icons">details</i>Atendimentos realizados:</h5>
-
-        
-
-
-<div class="card">
-  <div class="card-content black-text">
-    <span class="card-title">Card Title</span>
-    <p>I am a very simple card. I am good at containing small bits of information.
-    I am convenient because I require little markup to use effectively.</p>
-  </div>
-  <div class="card-action">
-    <a href="#">This is a link</a>
-    <a href="#">This is a link</a>
-  </div>
+<div class="collection with-header">
+  <div class="collection-header"><h5 class="flow-text"><i class="tiny material-icons">details</i>Atendimentos realizados:</h5></div>
+  <% @client.appointments.each do |appointment| %>
+    <% lista_servicos = '' %>
+    <% appointment.services.each do |service|
+       lista_servicos << "[" + service.name + "] "
+    end %>
+    <% if appointment.schedule_on.present? and appointment.appointment_time.present? %>
+      <%= link_to l(appointment.schedule_on, format: '%A, %d de %B de %Y') + ' - ' + appointment.appointment_time.strftime("%H:%M") + ' - ' + lista_servicos + ' - ' + appointment.calendar.name, appointment, class: "collection-item #{Settings.tema.cor.link}" %>
+      <% end %>
+  <% end %>
 </div>
-

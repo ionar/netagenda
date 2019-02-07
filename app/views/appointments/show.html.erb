@@ -1,28 +1,47 @@
 <% @page_title = @appointment.name %>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Descritivo rápido:</strong>
   <%= @appointment.name %>
 </p>
 
 <p>
-  <strong>Data:</strong>
-  <%= @appointment.schedule_on %>
-</p>
-
-<p>
-  <strong>Horário:</strong>
-  <%= @appointment.appointment_time_only %>
+  <strong>Data/Horário:</strong>
+  <%= l(@appointment.schedule_on, format: '%A, %d de %B') %> - <%= @appointment.appointment_time.strftime("%H:%M") %>
 </p>
 
 <p><strong>Serviços: </strong>
 	<%= @appointment.services.map(&:name).join(" - ") %>
 </p>
 
-<p>
-  <strong>Client:</strong>
-  <%= @appointment.client.name if @appointment.client.present? %>
+<p><strong>Observações: </strong>
+	<%= @appointment.notes %>
 </p>
+
+<% if @appointment.client.present? %>
+ 	<ul class="collection with-header">
+        <li class="collection-header"><h4>Dados do cadastro</h4></li>
+        <li class="collection-item"><strong>Nome: </strong><%= link_to @appointment.client.name, @appointment.client, class: "#{Settings.tema.cor.link}" %></li>
+        <li class="collection-item"><strong>Whats:</strong> <%= @appointment.client.whatsapp %></li>
+        <li class="collection-item"><strong>Fone alternativo:</strong> <%= @appointment.client.phone %></li>
+        <li class="collection-item"><strong>Endereço:</strong> <%= @appointment.client.address %></li>
+        <li class="collection-item"><strong>CEP:</strong> <%= @appointment.client.cep %></li>
+        <li class="collection-item"><strong>Cidade:</strong> <%= @appointment.client.city %></li>
+        <li class="collection-item"><strong>Estado:</strong> <%= @appointment.client.province %></li>
+        <li class="collection-item"><strong>Nascimento:</strong> <%= @appointment.client.birth_date %></li>
+        <li class="collection-item"><strong>CPF:</strong> <%= @appointment.client.cpf %></li>
+        <li class="collection-item"><strong>RG:</strong> <%= @appointment.client.rg %></li>
+        <li class="collection-item"><strong>email:</strong> <%= @appointment.client.email %></li>
+        <li class="collection-item"><strong>Profissão:</strong> <%= @appointment.client.occupation %></li>
+    </ul>
+
+<% else %>
+	<ul class="collection">
+		<li class="collection-item truncate">Agendamento não vinculado ao cadastro de clientes</li>
+	</ul>
+<% end %>
+
+
 
 <div class="fixed-action-btn">
   <%= link_to edit_appointment_path(@appointment), class: "btn-floating btn-large waves-effect waves-light #{Settings.tema.cor.primaria}" do %>
