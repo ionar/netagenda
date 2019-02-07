@@ -54,4 +54,13 @@ end
     end
   end
 
+  def pulse_btn(agendamento)
+    agendamento = agendamento
+    if agendamento.client.present?
+      return ''.to_s
+    else
+      return 'pulse'.to_s
+    end
+  end
+
 end

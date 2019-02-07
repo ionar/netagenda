@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<% @page_title = @appointment.name %>
 
 <p>
   <strong>Name:</strong>
@@ -24,5 +24,14 @@
   <%= @appointment.client.name if @appointment.client.present? %>
 </p>
 
-<%= link_to 'Edit', edit_appointment_path(@appointment) %> |
-<%= link_to 'Back', appointments_path %>
+<div class="fixed-action-btn">
+  <%= link_to edit_appointment_path(@appointment), class: "btn-floating btn-large waves-effect waves-light #{Settings.tema.cor.primaria}" do %>
+    <i class="material-icons">create</i>
+  <% end %>
+  <%= link_to @appointment, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn-floating btn-large waves-effect waves-light red" do %>
+    <i class="material-icons">delete</i>
+  <% end %>
+  <%= link_to :back, class: "btn-floating btn-large waves-effect waves-light #{Settings.tema.cor.primaria}" do %>
+    <i class="material-icons">arrow_back</i>
+  <% end %>
+</div>

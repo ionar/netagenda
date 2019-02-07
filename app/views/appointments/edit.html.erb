@@ -1,12 +1,12 @@
 <% @page_title = @appointment.name + " - Editar" %>
-<small><%= l(@appointment.schedule_on, format: '%A, %d de %B') %> - <%= @appointment.appointment_time.strftime("%H:%M") %></small>
+
 <%= render 'form', appointment: @appointment %>
 
 <div class="fixed-action-btn">
   <%= link_to @appointment, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn-floating btn-large waves-effect waves-light red" do %>
     <i class="material-icons">delete</i>
   <% end %>
-  <%= link_to appointments_path, class: "btn-floating btn-large waves-effect waves-light #{Settings.tema.cor.primaria}" do %>
+  <%= link_to :back, class: "btn-floating btn-large waves-effect waves-light #{Settings.tema.cor.primaria}" do %>
     <i class="material-icons">arrow_back</i>
   <% end %>
 </div>

@@ -2,25 +2,34 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
+  <div class="form-inputs row">
     <%= f.hidden_field :client_id %>
     <%= f.hidden_field :calendar %>
-    <%= f.input :name, placeholder: "Texto livre com uma breve descrição", label: "Descritivo rápido" %>
-    <%= f.association :services, label: "Serviços/Procedimentos" %>
-    <%= f.input :schedule_on, label: "Data", input_html: { class: 'abre-calendario' } %>
-    <%= f.input :appointment_time, label: "Horário", input_html: { class: 'abre-calendario-hora' } %>
-    <%= f.input :notes, label: 'Anotações' %>
-    <%= f.input :finalized, label: 'Atendimento finalizado?' %>    
-  </div>
+    <%= f.input :name, placeholder: "Texto livre com uma breve descrição", label: "Descritivo rápido", wrapper_html: { class: 'col xl6 l6 m12 s12' } %>
+    <%= f.association :services, label: "Serviços/Procedimentos", wrapper_html: { class: 'col xl6 l6 m12 s12' }  %>
+  </div><!-- /form-inputs -->
+  <div class="form-inputs row">
+    <%= f.input :notes, label: 'Anotações', wrapper_html: { class: 'col xl12 l12 m12 s12' } %> 
+    <%= f.input :finalized, label: 'Atendimento finalizado?', wrapper_html: { class: 'col xl12 l12 m12 s12' } %>   
+  </div><!-- /form-inputs -->    
 
-   <ul class="collection with-header">
+   <ul class="form-inputs collection with-header">
         <li class="collection-header <%= Settings.tema.cor.primaria %>"><%= vinculo_msg(@appointment) %></li>
-        <li class="collection-item"><div><span>Nome Completo: </span><span id="appointment_client_name" class="panel-client"><%= @appointment.client.name if @appointment.client.present? %></span><%= link_to clients_path, remote: true, class: "secondary-content waves-effect waves-light btn #{Settings.tema.cor.primaria} pulse" do %><i class="material-icons">assignment_ind</i><% end %></div></li>
+        <li class="collection-item"><div><span>Nome: </span><span id="appointment_client_name" class="panel-client"><%= @appointment.client.name if @appointment.client.present? %></span><%= link_to clients_path, remote: true, class: "secondary-content waves-effect waves-light btn #{Settings.tema.cor.primaria} " + pulse_btn(@appointment) do %><i class="material-icons">assignment_ind</i><% end %></div></li>
         <li class="collection-item"><span>CPF: </span><span id="appointment_client_cpf" class="panel-client"><%= @appointment.client.cpf if @appointment.client.present?%></span></li>
         <li class="collection-item"><span>Endereço: </span><span id="appointment_client_endereco" class="panel-client"><%= @appointment.client.address if @appointment.client.present? %></span></li>
         <li class="collection-item"><span>Cidade/UF: </span><span id="appointment_client_cidade" class="panel-client"><%= @appointment.client.city if @appointment.client.present?%> / <%= @appointment.client.province if @appointment.client.present?%></span></li>
         <li class="collection-item"><span>Nascimento: </span><span id="appointment_client_nascimento" class="panel-client"><%= @appointment.client.birth_date.strftime("%d/%m/%Y") if (@appointment.client.present? and @appointment.client.birth_date.present?) %></span></li>
-      </ul>
+  </ul>
+
+  <div class="form-inputs row collection with-header">
+      <div class="collection-header <%= Settings.tema.cor.primaria %>"><span class="flow-text white-text">Transferir data ou horário</span></div>
+      <div class="col xl4 l4 m12 s12">
+        <span class="flow-text grey-text"><%= l(@appointment.schedule_on, format: '%A, %d de %B') %> - <%= @appointment.appointment_time.strftime("%H:%M") %></span>
+      </div>
+         <%= f.input :schedule_on, label: "Data", input_html: { class: 'abre-calendario' }, wrapper_html: { class: 'col xl4 l4 m12 s12' } %>
+        <%= f.input :appointment_time, label: "Horário", input_html: { class: 'abre-calendario-hora' }, wrapper_html: { class: 'col xl4 l4 m12 s12' } %>
+  </div><!-- /form-inputs -->      
 
     <div class="form-actions">
        <%= link_to 'Cancelar', :back, :class => 'waves-effect waves-light btn grey darken-1' %>
