@@ -46,4 +46,10 @@ module ApplicationHelper
 	      return Date.current
 	    end
   	end
+
+  	def onde_estou
+    	cont = params[:controller]
+    	page = action_name
+    	return cont + '/' + page
+	end
 end

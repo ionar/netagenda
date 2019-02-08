@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get 'welcome/cadastros'
   resources :clients
-  root to: 'welcome#index'
+  root to: 'appointments#index'
   devise_for :users, :path_prefix => 'my', controllers: {
         sessions: 'users/sessions'
   }
