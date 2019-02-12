@@ -124,7 +124,7 @@ class AppointmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def appointment_params
-      params.require(:appointment).permit(:notes, :finalized, :name, :schedule_on, :calendar_id, :client_id, :appointment_time, :service_ids => [])
+      params.require(:appointment).permit(:duration, :notes, :finalized, :name, :schedule_on, :calendar_id, :client_id, :appointment_time, :service_ids => [])
     end
 
     def dia_selected

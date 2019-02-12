@@ -7,16 +7,20 @@
 
 <p>
   <strong>Data/Horário:</strong>
-  <%= l(@appointment.schedule_on, format: '%A, %d de %B') %> - <%= @appointment.appointment_time.strftime("%H:%M") %>
+  <%= l(@appointment.schedule_on, format: '%A, %d de %B') %> - <%= @appointment.appointment_time.strftime("%H:%M") %> até <%= hora_termino(@appointment) %>
+</p>
+
+<p><strong>Duração: </strong>
+  <%= @appointment.duration.pretty_duration if @appointment.duration.present? %>
 </p>
 
 <p><strong>Serviços: </strong>
 	<%= @appointment.services.map(&:name).join(" - ") %>
 </p>
 
-<p><strong>Observações: </strong>
-	<%= @appointment.notes %>
-</p>
+<strong>Observações: </strong>
+	<%= simple_format(@appointment.notes) %>
+
 
 <% if @appointment.client.present? %>
  	<ul class="collection with-header">

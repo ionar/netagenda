@@ -3,7 +3,7 @@ class Appointment < ApplicationRecord
   belongs_to :calendar
   has_and_belongs_to_many :services
 
-  validates :name, presence: true
+  validates :name, :duration, presence: true
 
   scope :para_o_calendar, -> (calendario) { where calendar_id: calendario }
 
