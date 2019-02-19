@@ -67,7 +67,6 @@ gem 'jquery-rails'
 gem 'simple_form'
 gem 'devise'
 gem 'serviceworker-rails'
-
 gem 'materialize-sass'
 gem 'material_icons'
 gem 'materialize-form'
@@ -75,3 +74,5 @@ gem 'config'
 gem 'kaminari'
 gem 'ransack'
 gem "simple_calendar", "~> 2.0"
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'

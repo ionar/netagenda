@@ -2,18 +2,7 @@
 <%# Settings.institutional.name %>
 
 <% if current_user.calendar %>
-
 <div class="row">
-  <div class="col xl4 l5 s12 m12 hide-on-med-and-down">
-    <div id="events_calendar">
-      <%= render partial: "appointments/calendar", locals: {events: @appointments_todos} %>
-    </div><!-- /events_calendar -->
-  </div><!-- /col -->
-  <div class="col xl8 l7 s12 m12">
-    <div id="lista-horarios">
-      <%= render partial: "appointments/listagem", locals: {events: @appointments} %>
-    </div><!-- lista-horarios -->
-  </div><!-- /col -->  
-</div><!-- /row -->
-
+<div id="calendar"></div>
+</div>
 <% end %>

@@ -19,6 +19,7 @@ class AppointmentsController < ApplicationController
 ##  end
 
   def index
+    ##@events = Event.where(start: params[:start]..params[:end])
     ##@appointments = Appointment.all
     @appointments = Appointment.where(nil)
     @appointments = @appointments.para_o_calendar(current_user.calendar_id).para_o_dia(dia_selected)
@@ -29,11 +30,33 @@ class AppointmentsController < ApplicationController
       mes_para_consulta = Date.current
     end
 
+    #if params[:start].present?
+    #  puts params[:start]
+    #end
+
     beginning_of_month = mes_para_consulta.beginning_of_month
     end_of_month = beginning_of_month.end_of_month
 
     @appointments_todos = Appointment.where(schedule_on: beginning_of_month..end_of_month)
     @appointments_todos = @appointments_todos.para_o_calendar(current_user.calendar_id)
+
+
+#start=2019-02-19T00%3A00%3A00&end=2019-02-20T00%3A00%3A00
+    if params[:start].present?
+      
+      mes = params[:start].to_date
+    else
+      mes = Date.current
+    end
+
+    inicio_do_mes = mes.beginning_of_month
+    fim_do_mes = inicio_do_mes.end_of_month
+
+    puts inicio_do_mes
+    puts fim_do_mes
+
+    @appointments_mes = Appointment.where(schedule_on: inicio_do_mes..fim_do_mes)
+    @appointments_mes = @appointments_mes.para_o_calendar(current_user.calendar_id)
 
   end
 

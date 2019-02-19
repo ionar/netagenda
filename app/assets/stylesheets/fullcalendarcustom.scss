@@ -1,0 +1,96 @@
+/*
+
+Colors: Use the following - https://www.google.com/design/spec/style/color.html#color-color-palette
+        at the 700 level. An opacity of 0.65 is automatically applied to the
+        700 level colors to generate a soft and pleasing look.
+
+        Color were applied to each event using the following code:
+
+        events.push({
+            title: 'This is a Material Design event!',
+            start: 'someStartDate',
+            end: 'someEndDate',
+            color: '#C2185B'
+        });
+
+*/
+
+.fc-toolbar .fc-center h2 {
+    color: #757575;
+    font-size: 35px;
+    font-weight: bold;
+    //line-height: 75px;
+}
+
+@media #{$medium-and-down} {
+    .fc-toolbar .fc-center h2 {
+    font-size: 25px;
+    }
+}
+
+.fc-toolbar .fc-center {
+    
+}
+
+/* Remove that awful yellow color and border from today in Schedule */
+.fc-state-highlight {
+
+}
+
+/* Styling for each event from Schedule */
+.fc-time-grid-event.fc-v-event.fc-event {
+
+}
+
+/* Bolds the name of the event and inherits the font size */
+.fc-event {
+
+}
+
+/* Remove the header border from Schedule */
+.fc td, .fc th {
+
+}
+
+/* Inherits background for each event from Schedule. */
+.fc-event .fc-bg {
+
+}
+
+/* Normal font weight for the time in each event */
+.fc-time-grid-event .fc-time {
+;
+}
+
+/* Apply same opacity to all day events */
+.fc-ltr .fc-h-event.fc-not-end, .fc-rtl .fc-h-event.fc-not-start {
+
+}
+
+/* Apply same opacity to all day events */
+.fc-day-grid-event.fc-h-event.fc-event.fc-not-start.fc-end {
+
+}
+
+/* Material design button */
+.fc-button {
+
+}
+
+.fc-button:hover {
+
+}
+
+.fc-button:focus, .fc-button:hover {
+
+}
+
+/* The active button box is ugly so the active button will have the same appearance of the hover */
+.fc-state-active {
+
+}
+
+/* Not raised button */
+.fc-state-default {
+
+}

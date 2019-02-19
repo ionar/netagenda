@@ -63,7 +63,19 @@ end
     end
   end
 
-  def hora_termino(agendamento)
+  def hora_termino_helper(agendamento)
+    agendamento = agendamento
+    if agendamento.duration.present?
+      inicio = agendamento.appointment_time
+      duration = agendamento.duration
+      termino = inicio + duration.minutes
+      return termino.strftime("%H%M%S")
+    else
+      return "001500"
+    end
+  end
+
+  def hora_termino_helper_show(agendamento)
     agendamento = agendamento
     if agendamento.duration.present?
       inicio = agendamento.appointment_time
@@ -71,7 +83,7 @@ end
       termino = inicio + duration.minutes
       return termino.strftime("%H:%M")
     else
-      return "duracao ausente"
+      return "Não informado"
     end
-  end
+  end  
 end

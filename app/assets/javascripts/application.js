@@ -4,30 +4,75 @@
 //= require jquery3
 //= require serviceworker-companion
 //= require materialize
+//= require moment 
+//= require fullcalendar
+//= require fullcalendar/locale-all
 //= require_tree .
 
+
+  function eventCalendar() {
+    return $('#calendar').fullCalendar({ 
+      dayClick: function(date, allDay, jsEvent, view) {
+      dia = moment.utc(date).format('DD-MM-YYYY');
+
+      hora = moment.utc(date).format('HH:mm');
+      if (allDay) {
+        // Clicked on the entire day
+        //alert(date.toDate());
+        //alert(hora);
+        url = "/appointments/new?dia="+dia+"&hora="+hora;
+        location.href = url;
+      }
+    },
+    header: {
+    left: 'prev,next today',
+    center: 'title',
+    right: 'month,agendaWeek,agendaDay'
+    },
+    locale: 'pt-br',
+    allDaySlot: false,
+    events: '/appointments.json',
+    defaultView: 'agenda',
+    minTime: '07:00:00',
+    maxTime: '20:30:00',
+    height: 800,
+    selectable: true,
+    selectHelper: true,
+    editable: false,
+    eventLimit: true,
+    navLinks: true,
+    unselectAuto: true,
+    themeSystem: "standard",
+    handleWindowResize: true,
+    weekends: true, // Show weekends
+    displayEventTime: true, // Display event time
+    });
+  };
+
+  function clearCalendar() {
+    $('#calendar').fullCalendar('delete'); 
+    $('#calendar').html('');
+  };
+
+
 $(document).on('nested:fieldAdded', function(event){
-
-
-
   window.materializeForm.init()
 });
 
+$(document).on('turbolinks:before-cache', clearCalendar);
+
 $(document).on("turbolinks:load", function() {
-  console.log("LOAD rodou");
-  var d = new Date();
-  d.setDate(d.getDate());
-  console.log(d);
 
-  //$(".link-day").click(function(){
-  //  $("#lista-horarios").fadeOut();
-  //});
-
+  eventCalendar(); //fullcalendar
   // cocoon gem, open new input after existent
   ////$("#weighings a.add_fields").data("association-insertion-method", 'before').data("association-insertion-node", 'this');
+
+  //Tentando customizar o fullcalendar
+  //$('.fc-center h2').addClass("flow-text");
+
   M.Modal._count = 0; 
   $('.modal').modal();
-  M.textareaAutoResize($('.materialize-textarea'));
+  //M.textareaAutoResize($('.materialize-textarea')); //colocar em cada form
   M.updateTextFields();
   $('select').formSelect();
   $('.dropdown-button').dropdown(); 
