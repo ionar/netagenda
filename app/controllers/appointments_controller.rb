@@ -58,6 +58,9 @@ class AppointmentsController < ApplicationController
     @appointments_mes = Appointment.where(schedule_on: inicio_do_mes..fim_do_mes)
     @appointments_mes = @appointments_mes.para_o_calendar(current_user.calendar_id)
 
+    @appointments_all = Appointment.where(nil)
+    @appointments_all = @appointments_all.para_o_calendar(current_user.calendar_id)
+
   end
 
   # GET /appointments/1

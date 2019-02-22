@@ -1,5 +1,5 @@
 #json.array! @appointments, partial: 'appointments/appointment', as: :appointment
-json.array!(@appointments_todos) do |event|
+json.array!(@appointments_all) do |event|
 
   inicio_formatado = event.schedule_on.strftime("%Y%m%d") + "T" + event.appointment_time.strftime("%H%M%S") + "Z"
   final_formatado = event.schedule_on.strftime("%Y%m%d") + "T" + hora_termino_helper(event) + "Z"
