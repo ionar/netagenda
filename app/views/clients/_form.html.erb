@@ -41,18 +41,18 @@
                       ['SP','SP'],
                       ['TO','TO'],
                       ['ESTRANGEIRO','ESTRANGEIRO'],
-                    ], prompt: 'Selecione' %>
+                    ] %>
   </div><!-- /.form-inputs .row -->
   <div class="form-inputs row">
-    <%= f.input :birth_date, label: "Data de nascimento", input_html: { class: 'abre-calendario' }, wrapper_html: { class: 'col l2 m12 s12' } %>
+    <%= f.input :birth_date, label: "Data de nascimento", input_html: { class: 'abre-calendarioX' }, wrapper_html: { class: 'col l2 m12 s12' }, placeholder: "dd-mm-aaaa" %>
     <%= f.input :cpf, label: 'CPF', wrapper_html: { class: 'col l2 m12 s12' } %>
     <%= f.input :rg, label: 'RG', wrapper_html: { class: 'col l2 m12 s12' } %>
     <%= f.input :email, wrapper_html: { class: 'col l3 m12 s12' } %>
-    <%= f.input :occupation, label: 'Profissão', wrapper_html: { class: 'col l3 m12 s12' } %>    
+    <%= f.input :occupation, label: 'Profissão', wrapper_html: { class: 'col l3 m12 s12' } %>
   </div><!-- /.form-inputs .row -->
 <div class="form-inputs row">
     <%= f.input :notes, label: 'Anotações', wrapper_html: { class: 'col l12 m12 s12' } %>
-  </div><!-- /.form-inputs .row -->  
+  </div><!-- /.form-inputs .row -->
   <div class="row">
     <div class="form-actions col s12">
        <%= link_to 'Cancelar', :back, :class => 'waves-effect waves-light btn grey darken-1' %>
