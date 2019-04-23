@@ -9,6 +9,11 @@
   <%= @user.calendar.name if @user.calendar.present? %>
 </p>
 
+<p>
+  <strong>Admin:</strong>
+  <%= 'sim' if @user.admin? %>
+</p>
+
 <div class="fixed-action-btn">
   <%= link_to edit_user_path(@user), class: "btn-floating btn-large waves-effect waves-light #{Settings.tema.cor.primaria}" do %>
     <i class="material-icons">create</i>

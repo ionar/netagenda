@@ -23,6 +23,7 @@
   <thead>
     <tr>
       <th><%= sort_link(@q, :email, 'E-mail', {}, {remote: false, class: Settings.tema.cor.link}) %></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -30,6 +31,7 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= link_to user.email, user, class: Settings.tema.cor.link %></td>
+        <td><%= 'admin' if user.admin? %>
       </tr>
     <% end %>
   </tbody>

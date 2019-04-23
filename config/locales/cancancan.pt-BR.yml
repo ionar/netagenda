@@ -1,0 +1,6 @@
+# encoding: UTF-8
+# pt-BR translations for CanCanCan
+pt-BR:
+  unauthorized:
+    manage:
+      all: "Acesso negado!"

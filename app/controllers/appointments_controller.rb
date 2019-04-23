@@ -1,6 +1,7 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
   before_action :dia_selected
+  load_and_authorize_resource
 
   def diasel
     @appointments = Appointment.where(nil)

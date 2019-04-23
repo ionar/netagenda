@@ -76,3 +76,4 @@ gem 'ransack'
 gem "simple_calendar", "~> 2.0"
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+gem 'cancancan'
