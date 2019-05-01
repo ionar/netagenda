@@ -1,6 +1,7 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
   before_action :dia_selected
+  #before_action :usuario_ativo?
   load_and_authorize_resource
 
   def diasel
@@ -159,6 +160,15 @@ class AppointmentsController < ApplicationController
         return Date.parse(params[:dia])
       else
         return Date.current
+      end
+    end
+
+    def usuario_ativo?
+      if (current_user.active?)
+        puts 'ATIVO'
+      else
+        puts 'NÃO ATIVO'
+        redirect_to welcome_index_url, :alert => "Usuario desativado"
       end
     end
 end

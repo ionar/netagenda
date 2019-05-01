@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_23_171942) do
+ActiveRecord::Schema.define(version: 2019_05_01_115828) do
 
   create_table "appointments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 2019_04_23_171942) do
     t.datetime "updated_at", null: false
     t.bigint "calendar_id"
     t.boolean "admin"
+    t.boolean "active"
     t.index ["calendar_id"], name: "index_users_on_calendar_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

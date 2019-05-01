@@ -1,8 +1,17 @@
 <% @page_title = Settings.institutional.name %>
-<h2>Welcome</h2>
-<h3><%= current_user.email %></h3>
-<p><%= Settings.tema.cor.primaria %></p>
-<p><%= Settings.tema.cor.secundaria %></p>
-<p>Data: <%= Date.current %></p>
-<p>Data /zone: <%# Date.zone.current %></p>
-<%= onde_estou %>
+<div class="center-align">
+	<%= image_tag 'bem-vindo.png', alt: "Bem vindo", class: "responsive-img"  %>
+</div>
+<div class="card-panel grey lighten-5 z-depth-1">
+  <div class="row valign-wrapper">
+    <div class="col xl4 l4 m12 s12">
+    	<h6><%= admin_message %></h6>
+      <p class="truncate"><%= current_user.email %></p>
+    </div>
+    <div class="col xl8 l8 m12 s12 center-align">
+      <p class="black-text">
+        <%= welcome_message %>
+      </p>
+    </div>
+  </div>
+</div>

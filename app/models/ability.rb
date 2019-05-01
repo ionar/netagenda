@@ -2,14 +2,20 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    if user.admin?
-        can :manage, :all
-    else
+    if user.active? 
+        puts "ACTIVE"
         can [:create, :read, :update], Appointment
         can [:read], Calendar
         can [:create, :read, :update], Client
         can [:create, :read, :update], Service
         can [:read], User
+        
+        if user.admin?
+            can :manage, :all
+        end
+    else
+        puts "NAO ACTIVE"
+       can [:read], :welcome 
     end
 
     # Define abilities for the passed in user here. For example:

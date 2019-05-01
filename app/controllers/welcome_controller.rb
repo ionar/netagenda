@@ -1,8 +1,6 @@
 class WelcomeController < ApplicationController
-	 skip_authorization_check only: [:index, :cadastros, :success]
+	 skip_authorization_check only: [:index, :cadastros]
   def index
-  end
-  def success
   end
   def cadastros
   end  

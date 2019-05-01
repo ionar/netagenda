@@ -24,6 +24,7 @@
     <tr>
       <th><%= sort_link(@q, :email, 'E-mail', {}, {remote: false, class: Settings.tema.cor.link}) %></th>
       <th></th>
+      <th>Ativo</th>
     </tr>
   </thead>
 
@@ -31,7 +32,8 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= link_to user.email, user, class: Settings.tema.cor.link %></td>
-        <td><%= 'admin' if user.admin? %>
+        <td><%= '<span class="new badge" data-badge-caption="admin"></span>'.html_safe if user.admin? %></td>
+        <td><%= is_active?(user) %></td>
       </tr>
     <% end %>
   </tbody>

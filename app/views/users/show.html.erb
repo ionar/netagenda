@@ -11,7 +11,12 @@
 
 <p>
   <strong>Admin:</strong>
-  <%= 'sim' if @user.admin? %>
+  <%= is_admin?(@user)  %>
+</p>
+
+<p>
+  <strong>Ativo:</strong>
+  <%= is_active?(@user)  %>
 </p>
 
 <div class="fixed-action-btn">
