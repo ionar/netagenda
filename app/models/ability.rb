@@ -8,8 +8,9 @@ class Ability
         can [:read], Calendar
         can [:create, :read, :update], Client
         can [:create, :read, :update], Service
-        can [:read], User
-        
+        can [:read, :update], User, id: user.id # only you own user
+
+      
         if user.admin?
             can :manage, :all
         end
