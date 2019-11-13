@@ -64,8 +64,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 gem 'jquery-rails'
-gem 'simple_form'
-gem 'devise'
 gem 'serviceworker-rails'
 gem 'materialize-sass'
 gem 'material_icons'
@@ -77,3 +75,4 @@ gem "simple_calendar", "~> 2.0"
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'cancancan'
+gem "simple_form", ">= 5.0.0"
