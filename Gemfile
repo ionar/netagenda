@@ -76,3 +76,4 @@ gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'cancancan'
 gem "simple_form", ">= 5.0.0"
+gem "devise"
