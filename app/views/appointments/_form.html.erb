@@ -6,13 +6,13 @@
     <%= f.hidden_field :client_id %>
     <%= f.hidden_field :calendar %>
     <%= f.input :name, placeholder: "Texto livre com uma breve descrição", label: "Descritivo rápido", wrapper_html: { class: 'col xl4 l4 m12 s12' } %>
-    <%= f.input :duration, label: "Duração", placeholder: "Em minutos", wrapper_html: { class: 'col xl4 l4 m12 s12' }  %> <%# input_html: {value: '30'} %>
+    <%= f.input :duration, label: "Duração", placeholder: "Em minutos - apenas numeros", wrapper_html: { class: 'col xl4 l4 m12 s12' }  %> <%# input_html: {value: '30'} %>
     <%= f.association :services, label: "Serviços/Procedimentos", wrapper_html: { class: 'col xl4 l4 m12 s12' }  %>
   </div><!-- /form-inputs -->
   <div class="form-inputs row">
     <%= f.input :notes, label: 'Anotações', wrapper_html: { class: 'col xl12 l12 m12 s12' } %> 
-    <%= f.input :finalized, label: 'Atendimento finalizado?', wrapper_html: { class: 'col xl12 l12 m12 s12' } %>   
-  </div><!-- /form-inputs -->    
+    <%= f.input :finalized, label: 'Atendimento finalizado?', wrapper_html: { class: 'col xl12 l12 m12 s12' } if @appointment.client.present? %>   
+  </div><!-- /form-inputs -->
 
    <ul class="form-inputs collection with-header">
         <li class="collection-header <%= Settings.tema.cor.primaria %>"><%= vinculo_msg(@appointment) %></li>
