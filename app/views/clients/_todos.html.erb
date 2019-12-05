@@ -32,6 +32,7 @@
       <tr>
         <td>
           <a class="link-paciente-selecao <%= Settings.tema.cor.link %>" onclick="
+            $('#appointment_finalized').prop('disabled', false);
             $('#appointment_client_id').val('<%= client.id %>');
             $('#appointment_client_name').val('<%= client.name %>');
             $('#appointment_client_endereco').val('<%= client.address %>');
