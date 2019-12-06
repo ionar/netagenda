@@ -63,6 +63,20 @@ $(document).on('turbolinks:before-cache', clearCalendar);
 
 $(document).on("turbolinks:load", function() {
   
+  //testes com autoreload
+  var REFRESH_INTERVAL_IN_MILLIS = 5000;
+  if ($('.f-pending-message').length > 0) {
+    setTimeout(function(){
+     // disable page scrolling to top after loading page content
+     Turbolinks.enableTransitionCache(true);
+
+     // pass current page url to visit method
+     Turbolinks.visit(location.toString());
+
+     // enable page scroll reset in case user clicks other link
+     Turbolinks.enableTransitionCache(false);
+      }, REFRESH_INTERVAL_IN_MILLIS);
+  }
 
   eventCalendar(); //fullcalendar
   // cocoon gem, open new input after existent
@@ -128,21 +142,5 @@ document.addEventListener('turbolinks:before-render', () => {
   const instance = M.Sidenav.getInstance(elem);
   if (instance) {
     instance.destroy();
-  }
-});
-
-$(document).on('ready page:load', function() {
-  var REFRESH_INTERVAL_IN_MILLIS = 5000;
-   if ($('.f-pending-message').length > 0) {
-     setTimeout(function(){
-      // disable page scrolling to top after loading page content
-      Turbolinks.enableTransitionCache(true);
-
-      // pass current page url to visit method
-      Turbolinks.visit(location.toString());
-
-      // enable page scroll reset in case user clicks other link
-      Turbolinks.enableTransitionCache(false);
-       }, REFRESH_INTERVAL_IN_MILLIS);
   }
 });
