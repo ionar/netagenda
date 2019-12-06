@@ -9,6 +9,33 @@
 //= require fullcalendar/locale-all
 //= require_tree .
 
+// Auto reload
+var reloadWithTurbolinks = (function () {
+  var scrollPosition;
+  var focusId;
+
+  function reload() {
+      Turbolinks.visit(window.location.toString(), {action: 'replace'})
+  }
+
+  document.addEventListener('turbolinks:before-render', function () {
+      scrollPosition = [window.scrollX, window.scrollY];
+      focusId = document.activeElement.id;
+  });
+  document.addEventListener('turbolinks:load', function () {
+      if (scrollPosition) {
+          window.scrollTo.apply(window, scrollPosition);
+          scrollPosition = null
+      }
+      if (focusId) {
+          document.getElementById(focusId).focus();
+          focusId = null;
+      }
+  });
+  return reload;
+})();
+
+
 
   function eventCalendar() {
     return $('#calendar').fullCalendar({
@@ -63,20 +90,10 @@ $(document).on('turbolinks:before-cache', clearCalendar);
 
 $(document).on("turbolinks:load", function() {
   
-  //testes com autoreload
-  var REFRESH_INTERVAL_IN_MILLIS = 5000;
-  if ($('.f-pending-message').length > 0) {
-    setTimeout(function(){
-     // disable page scrolling to top after loading page content
-     Turbolinks.enableTransitionCache(true);
-
-     // pass current page url to visit method
-     Turbolinks.visit(location.toString());
-
-     // enable page scroll reset in case user clicks other link
-     Turbolinks.enableTransitionCache(false);
-      }, REFRESH_INTERVAL_IN_MILLIS);
-  }
+  //auto reload
+  setInterval(function () {
+    reloadWithTurbolinks();
+  }, 3000);
 
   eventCalendar(); //fullcalendar
   // cocoon gem, open new input after existent
