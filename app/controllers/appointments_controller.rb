@@ -61,7 +61,7 @@ class AppointmentsController < ApplicationController
     @appointments_mes = @appointments_mes.para_o_calendar(current_user.calendar_id)
 
     ##@appointments_all = Appointment.where(nil)
-    @appointments_all = Appointment.last(300)
+    @appointments_all = Appointment.where(nil).last(300)
     @appointments_all = @appointments_all.para_o_calendar(current_user.calendar_id)
 
   end
